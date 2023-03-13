@@ -1,0 +1,102 @@
+% !TeX spellcheck = it
+\documentclass[a4paper, headings=standardclasses]{scrartcl}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{authblk}
+\renewcommand{\Affilfont}{\small}
+\usepackage[style=authoryear, backend=biber, sorting=nyt, useprefix=true]{biblatex}
+\usepackage[autostyle=false, style=english]{csquotes}
+\MakeOuterQuote{"}
+\usepackage[italian]{babel}
+\usepackage[modulo]{lineno}
+\linenumbers
+\usepackage[hidelinks]{hyperref}
+
+\addbibresource{complexity.bib}
+
+%opening
+\title{Complessità come meta-teoria\let\thefootnote\relax\footnotetext{
+		Questa versione è un lavoro preparatiorio per un articolo da presentare alla 2023 INEM Conference. \\
+		È a sua volta basata su un precedente lavoro presentato alla 24esima ESHET Summer School. \\
+		L'ultima versione disponibile di questo lavoro, insieme a una più concisa versione in inglese, è disponibile online \url{https://github.com/TnTo/complexity-economics/}.
+}}
+\subtitle{Cosa possiamo imparare dall'economia politica}
+\author{Michele Ciruzzi\thanks{mciruzzi@uninsubria.it - \url{https://orcid.org/0000-0003-1485-1204}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	Questo articolo è innanzitutto un tentativo d'introspezione, per mettere a fuoco le mie pratiche e i miei desideri nel far ricerca.
+	Sebbene non si possa dall'esperienza di un singolo (giovane) ricercatore trarre una legge per un'intera disciplina (un tema, quello del generalizzare, del collegare individuale e collettivo, che ritornerà più volte nell'articolo), molte esperienze sono, in fin dei conti, condivise perché collettive.
+	L'analisi storica ed epistemica del rapporto tra complessità ed economia (politica) è un mezzo, se non solamente un pretesto, per parlare di altri modi di fare ricerca oggi, che pongano in essere le condizioni affinché la complessità possa essere usata come paradigma epistemico piuttosto che come "semplice" insieme di strumenti di calcolo.
+	Ritengo che un approccio sinceramente complesso all'economia (politica) non possa che essere eterodosso, e che quindi l'aggiunta di elementi "complessi" ai recenti programmi di ricerca \textit{post-neoclassici} sia pretestuosa, che riguardi la complessità esclusivamente su di un piano matematico-computazionale (e per nulla su quello epistemico), come tentativo fuori tempo massimo di salvare le fondamenta neoclassiche della disciplina.
+\end{abstract}
+
+\section{La natura sfuggente della complessità}
+C'era una volta un mondo ricco di complessità, ma senza una teoria per descriverla. Quel mondo non è poi così in là nel tempo, a ben vedere.
+
+I primi lavori che sviluppano gli strumenti matematici che vengono ancora oggi usati da chi studia i sistemi complessi risalgono alla fine del XX secolo, in particolare gli studi di Poincaré sulla ricorrenza nei sistemi dinamici e quelli di Boltzmann sulla meccanica statistica.
+
+Da lì lo sviluppo dello studio dei sistemi complessi (soprattutto in fisica e, in misura minore, in biologia e informatica) è continuato per quasi un secolo prima che Anderson nel 1972 pubblicasse "More is Different" \parencite{anderson1972}, dando per la prima volta un quadro teorico di riferimento e segnando la nascita della teoria della complessità propriamente detta.
+
+Questa asincronia ha generato, e tuttora genera, un uso degli strumenti matematici senza che spesso siano contestualizzati in un quadro teorico più ampio, guidati più da un empiricalismo radicale che una comprensione del problema come ontologicamente complesso.
+
+Questo perché spesso le stesse pratiche di ricerca si sono sviluppate prima della sistematizzazione della teoria della complessità, che probabilmente non si è ancora conclusa, e si sono consolidati approcci matematici e computazioneli per affrontare singole classi di problemi.
+
+In qualche modo, è ben chiaro quali siano i metodi e i temi da includere nella teoria della complessità, perché possiamo osservare un gruppo di ricercatori che si ritiene una comunità di ricerca perché condividono le stesse origini, ma è meno chiaro cosa li accomuni, perché quei metodi e temi debbano essere inclusi nella teoria della complessità.
+
+Non aiuta, ma è una conseguenza di questo sviluppo diffuso e disorganico, che le definizioni di complessità o di sistema complesso siano numerose e non sempre coerenti tra loro \parencite{holt2011}, spesso perché pensate per cogliere un'aspetto della complessità legato a una specifica nicchia di ricerca o una specifica problematica. Anche perché l'idea di complessità è, negli ultimi ventianni, divenuta essenzialmente pop, un'etichetta senza un significato preciso che si è diffusa ovunque, lasciando tracce in quasi ogni disciplina.
+
+Tutto ciò premesso, nella prossima sezione propongo un'ulteriore definizione di complessità, di cui nessuno sentiva il bisogno, strumentale a questa argomentazione e che cerca di evidenziare il tratto davvero universale della questione, rinunciando a concetti (come l'emergenza, la non-linearità, il confronto fra la parte e il tutto) che assumono significato solo in alcuni ambiti di ricerca, per metodi o oggetti.
+
+\section{Di lenti, nomi e modi}
+\subsection{Di lenti, o una metafora}
+Le lenti hanno giocato nella storia un ruolo importante nel permettere la produzione di nuova conoscenza. Gli occhiali da lettura, i cannocchiali per l'esplorazione della terra e del cielo, il microscopio che rende visibile ciò che è troppo piccolo per essere visto.
+
+Una singola lente però non è in grado di mostrare tutto: se devi guardare un pianeta non puoi usare un microscopio, se vuoi studiare un batterio non puoi usare un microscopio, se sei miope non puoi usare delle lenti da presbite.
+
+Ma ognuno di essi permette di mettere a fuoco qualcosa di diverso, e con un ipotetico set completo di lenti si può mettere a fuoco tutto. Il punto è capire quale sia necessaria, cosa davvero ci interessa studiare con cura.
+
+Si può, come esperimento mentale, pensare di riuscire a creare una descrizione del sapere così comprensiva, al contempo analitica e sintetica, da rendere ogni altra obsoleta, ma non si discosterebbe molto da una mappa 1:1, sulla cui inutilità hanno scritto, meglio di me, Eco e Borges.
+
+Dobbiamo allora riconoscere che ogni descrizione del reale non può che essere parziale, centrata su qualche elemento di interesse mentre ne tralascia, inevitabilmente, altri.
+
+La complessità è questo: riconoscere che il mondo è composto da troppe cose, legate da troppi nessi e relazioni, per poterle isolare una alla volta o studiarle tutte insieme con precisioni. Invece, si può ragionare su quali siano, di volta in volta, le cose importanti da mettere a fuoco, l'ingrandimento necessario per vedere ciò che mi interessa. Sapendo però cosa non sto vedendo, ed essendo consapevoli del perché si è deciso di lasciare alcune cose fuori dal campo visivo.
+
+L'esperienza di usare un microscopio e guardarci dentro è illuminante: lo stesso vetrino, lo stesso campione, appare completamente diverso a ingrandimenti e su piani focali diversi. Ma è lo stesso oggetto. E non è possibile scegliere un'immagine, una rappresentazione, intrinsecamente vere. Sono tutte vere, possono però essere più o meno adatte a uno scopo, a mettere in risalto una specifica struttura o degli specifici elementi. Ma anche scelta una le altre non scompaiono, rimangono lì, in attesa delle loro domande, delle domande per cui essi sono adatti.
+
+\subsection{Di nomi, o una definizione}
+\textit{Un sistema è complesso se deve essere descritto diversamente a diversi livelli di una o più scale.}
+
+Sistema. Complesso. Descritto. Diverso. Livelli. Scala.
+
+Uno per volta.
+
+
+
+\subsection{Di modi, o una metodologia}
+
+\subsection{Meta-teorie}
+
+\section{The two Complexities in Economics}
+\subsection{An Anachronistic History}
+
+\subsection{The Santa Fe Perspective}
+
+\subsection{A Post-Neoclassical Perspective}
+
+\subsection{A Note on Pluralism}
+
+\section{Doing Complexity in Neoliberal Academia}
+\subsection{The Serialization of Creative Work}
+
+\subsection{The Social Legitimacy of Academic Workers}
+
+\subsection{The Need for Slow and Artisan Research}
+I want to empathize that a sincerely complex approach puts at leat as much emphasis on the processes than on the results, if not more. How a research question is chosen and how a model is tailored (and so the reasoning behind it) are a fundamental part of how research is doing and should be communicated and valorized on its own, where results remain a useful appendix of doing science.
+
+\printbibliography
+
+\end{document}
