@@ -4,7 +4,7 @@
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{authblk}
 \renewcommand{\Affilfont}{\small}
-\usepackage[style=authoryear, backend=biber, sorting=nyt, useprefix=true]{biblatex}
+\usepackage[style=apa, backend=biber, sorting=nyt, useprefix=true]{biblatex}
 \usepackage[autostyle=false, style=english]{csquotes}
 \MakeOuterQuote{"}
 \usepackage[italian]{babel}
@@ -39,11 +39,11 @@ C'era una volta un mondo ricco di complessità, ma senza una teoria per descrive
 
 I primi lavori che sviluppano gli strumenti matematici che vengono ancora oggi usati da chi studia i sistemi complessi risalgono alla fine del XX secolo, in particolare gli studi di Poincaré sulla ricorrenza nei sistemi dinamici e quelli di Boltzmann sulla meccanica statistica.
 
-Da lì lo sviluppo dello studio dei sistemi complessi (soprattutto in fisica e, in misura minore, in biologia e informatica) è continuato per quasi un secolo prima che Anderson nel 1972 pubblicasse "More is Different" \parencite{anderson1972}, dando per la prima volta un quadro teorico di riferimento e segnando la nascita della teoria della complessità propriamente detta.
+Da lì lo sviluppo dello studio dei sistemi complessi (soprattutto in fisica e, in misura minore, in biologia e informatica) è continuato per quasi un secolo prima che Anderson nel 1972 pubblicasse "More is Different" \parencite{anderson1972}, dando per la prima volta un quadro teorico di riferimento e segnando la nascita della teoria della complessità propriamente detta, e il Santa Fe Institute venisse fondato, creando il primo centro di ricerca specializzato sul tema \parencite{fontana2010a}.
 
 Questa asincronia ha generato, e tuttora genera, un uso degli strumenti matematici senza che spesso siano contestualizzati in un quadro teorico più ampio, guidati più da un empiricalismo radicale che una comprensione del problema come ontologicamente complesso.
 
-Questo perché spesso le stesse pratiche di ricerca si sono sviluppate prima della sistematizzazione della teoria della complessità, che probabilmente non si è ancora conclusa, e si sono consolidati approcci matematici e computazioneli per affrontare singole classi di problemi.
+Questo perché spesso le stesse pratiche di ricerca si sono sviluppate prima della sistematizzazione della teoria della complessità, che probabilmente non si è ancora conclusa, e si sono consolidati approcci matematici e computazionali per affrontare singole classi di problemi\footnote{Un elenco non esaustivo include i sistemi dinamici e il caos deterministico, le equazioni differenziali stocastiche e i processi stocastici, la meccanica statistica, i modelli ad agenti e i sistemi multi-agente, la teoria delle reti.}.
 
 In qualche modo, è ben chiaro quali siano i metodi e i temi da includere nella teoria della complessità, perché possiamo osservare un gruppo di ricercatori che si ritiene una comunità di ricerca perché condividono le stesse origini, ma è meno chiaro cosa li accomuni, perché quei metodi e temi debbano essere inclusi nella teoria della complessità.
 
@@ -74,10 +74,10 @@ Sistema. Complesso. Descritto. Diverso. Livelli. Scala.
 
 Uno per volta.
 
-Complesso non ha bisogno di molte spiegazioni: è un paper sulla teoria della complessità e in qualche modo deve rientrare nella definizione.
+Complesso non ha bisogno di molte spiegazioni: è un articolo sulla teoria della complessità e in qualche modo deve rientrare nella definizione.
 
 Sistema è più interessante, intanto perché l'idea che "la teoria della complessità studi i sistemi complessi" è talmente diffusa da poter essere considerata quasi tautologica, e poi perché comincia a descrivere ciò che vorremmo studiare.
-Un sistema è necessariamente composto da più enti in relazione (un concetto che piace tantissimo a chi come strumento di elezione ha scelto le reti), è antitetico alla monade isolata.
+Un sistema è necessariamente composto da più enti in relazione (un concetto che piace tantissimo a chi come strumento di elezione ha scelto le reti), ed è antitetico alla monade isolata.
 
 In altre parole, parlando di sistemi implichiamo l'esistenza di moltitudini di enti, forme, descrizioni, configurazioni, \dots
 
@@ -135,8 +135,45 @@ A ben guardare, gli studi di genere (come anche le teorie che si rifanno all'int
 
 È possibile che questa sessione si possa riassumere con il concetto di epistemologia, ma non credo di avere le capacità di sostenere un'argomentazione precisa per un'"empistemologia della complessità". Per questo motivo seguo una definizione maggiormente normativa e operativa, descrivendo una teoria sulle teorie.
 
+D'altra parte, la complessità è il doppio opposto del riduzionismo, dell'idea di poter ridurre il sistema a poche regole prime di cui le altre sono conseguenze, indipendentemente dalla scala di osservazione del sistema\footnote{Una discussione del tema nell'ambito dell'economia si trova in \textcite{fontana2010}}.
+
+E se in parte il riduzionismo ha sul piano formale raggiunto enormi successi, per esempio in fisica dove almeno a livello qualitativo si riesce a ricondurre tutto a una manciata di principi primi, sul piano sostanziale questa monoliticità delle teorie viene meno.
+Nella stessa fisica i modelli utilizzano strumenti matematici (e quindi descrizioni) molto diversi a seconda del livello a cui viene studiata la realtà, la meccanica newtoniana è ancora ampiamente utilizzata anche se non è corretta per descrivere ogni sistema, e la fisica dei sistemi complessi è nata proprio per cucire insieme diversi livelli delle scale.
+
 \section{Due accezioni di complessità in economia}
+Credo che l'economia sia un caso studio particolarmente interessante per il discorso che sto facendo.
+
+In primo luogo alcune scale sono estremamente presenti nel lessico della disciplina: il micro e il macro; il lungo e il breve periodo; le economia locali, il bilancio nazionale, il commercio internazionale.
+
+In secondo luogo ha presentato dei tratti di complessità nella sua storia classica, per poi affrontare una fase radicalmente riduzionista e scoprire in due distinti momenti la complessità con due esiti molto diversi.
+
 \subsection{Una storia anacronistica}
+\subsubsection{I classici}
+È una pretesa anacronistica cercare la complessità nel lavoro dei classici come atto volontario. Ma è sicuramente utile (almeno a questa argomentazione) cercare dei "tratti di complessità" delle caratteristiche del loro approccio all'economia politica che possano permettere, o addirittura facilitare, lo sviluppo di una teoria complessa dell'economia polica.
+
+Ma quali possono essere questi "tratti di complessità" da ricercare? Sicuramente la presenza di un maggior numero di scale esplorate e un approccio a descrivere (se non propriamente a sottrarre) invece che ad aggiungere.
+
+Quelli che seguono sono esempi, senza pretesa di completezza, ma sono sufficienti a dimostrare una condizione di esistenza. Un lavoro maggiormente sistematico potrebbe essere utile, ma non credo necessario.
+
+Un tema molto frequentato dai classici, Ricardo e Marx in particolare, ma sostanzialmente scomparso in epoca successiva è il tema del valore, o, per usare il lessico di questo articolo, i differenti livelli (o modi) della scala del valore. Mi spiego: che ogni bene abbia un valore è idea comune che non viene messa in discussione, ma come misurare il valore è stato oggetto di scontro intellettuale. Nei classici troviamo una molteplicità di metodi di calcolo del valore (il valore d'uso, il valore di scambio, il valore-lavoro) ognuno adatto a rispondere ad alcune domande sul valore di un bene e non ad altre. Possiamo vedere, ex-post, un riconoscimento della complessità del concetto di valore e la necessità di descriverlo diversamente per cogliere aspetti diversi del fenomeno.
+
+È interessante osservare che alcune definizioni di valore usano come unità di misura la moneta, mentre il valore lavoro è espresso in tempo e non è impossibile pensare a "valori" misurate in materia o energia. La scelta di come misurare il valore, comporta una scelta di quali altre grandezze economiche possano essere con questo confrontate e quali, invece, richiedano delle traformazioni (dettate dalla teoria) o siano semplicemente incommensurabili.
+
+Un altro tema presente in Ricardo, e prima di lui nei fisiocrati, è il problema del costo dei terreni legato ai rendimenti agricoli, la cui rilevanza non è difficile da capire in una società in cui l'agricoltura era ancora un settore economico rilevante. Ma la trattazione di questo problema richiede di descrivere i terreni come differenti, e quindi come dispersi in uno spazio geografico che non può più essere ignorato.
+
+Inoltre la scala geografica introduce un limite fisico, l'estensione finita dello spazio, che si traduce in un limite economico come finitezza (ma non necessariamente scarsità) delle materie prime, imponendo di introdurre una differenza tra modelli di crescita in presenza o in assenza di vincoli ambientali (e quindi una nuova scala).
+
+Per spiegare gli andamenti del mercato finanziario Keynes ricorre agli spiriti animali, introducendo delle differenze tra gli agenti perché, se tutti fossero uguali e quindi venisse eliminata questa scala di "comportamenti", le dinamiche del mercato sarebbero eccessivamente repentine e irrealistiche (un modello quantitativo che recupera il tema è \textcite{day1990}).
+
+Un'ultima nota sulla tradizione classica è l'uso limitato del formalismo matematico, che svolge un ruolo di chiaremento di singoli elementi piuttosto che di linguaggio della teoria. Credo che questo sia un aspetto rilevante soprattutto se confrontato con le pratiche di ricerca marginaliste di cui discuterò nei prossimi paragrafi.
+
+Il formalismo matematico permette di esprimere con chiarezza e precisione i sistemi e le relazioni che è possibile astrarre e formalizzare, ma al contrario limiti cioè che può essere studiato a ciò che è esprimibile nel linguaggio matematico, o addirittura con gli strumenti di alcune branche ritenute, per qualche motivo, le uniche opportune.
+Per aggirare questo problema la fisica ha continuamente generato nuove teorie matematica da testare, perché nuovi fenomeni inesprimibili con gli strumenti a disposizione richiedono, per essere comunque studiati, nuovi strumenti.
+
+Nei classici invece vediamo un prevalere del linguaggio naturale, in una maniera che permette di descrivere prima e poi, astraendo e semplificando, modellare, in un processo a sottrazione simili a quanto descritto prima.
+
+\subsubsection{Marginalismo e riduzionismo}
+
 
 \subsection{La prospettiva di Santa Fe}
 
@@ -152,7 +189,7 @@ A ben guardare, gli studi di genere (come anche le teorie che si rifanno all'int
 \subsection{La necessità per la ricerca di lentezza e artigianalità}
 I want to emphasize that a sincerely complex approach puts at least as much emphasis on the processes than on the results, if not more. How a research question is chosen and how a model is tailored (and so the reasoning behind it) is a fundamental part of how research is done and should be communicated and valorized on its own, where results remain a useful appendix of doing science.
 
-% Multi-medialità
+% Multi-medialità e stilemi
 
 \printbibliography
 
