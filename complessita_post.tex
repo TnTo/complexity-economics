@@ -1,0 +1,665 @@
+% !TeX spellcheck = it
+\documentclass[a4paper, headings=standardclasses]{scrartcl}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{authblk}
+\renewcommand{\Affilfont}{\small}
+\usepackage[style=apa, backend=biber, sorting=nyt, useprefix=true]{biblatex}
+\usepackage[autostyle=false, style=english]{csquotes}
+\MakeOuterQuote{"}
+\usepackage[italian]{babel}
+\usepackage[modulo]{lineno}
+\linenumbers
+\usepackage[hidelinks]{hyperref}
+
+\addbibresource{complexity.bib}
+
+%opening
+\title{Sulla complessità come meta-teoria\let\thefootnote\relax\footnotetext{
+		Versioni precedenti di questo lavoro sono state presentate alla 24esima ESHET Summer School e alla 2023 INEM Conference. \\
+		L'ultima versione di questo lavoro è disponibile online \url{https://github.com/TnTo/complexity-economics/}.
+}}
+\subtitle{una discussione dalla prospettiva dell'economia}
+\author{Margherita Redigonda\thanks{mciruzzi@uninsubria.it - \url{https://orcid.org/0000-0003-1485-1204}}}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		... \\
+		\textbf{Keywords:} \\
+		\textbf{JEL Codes:}
+	\end{abstract}
+	
+\section{Sulla Complessità}
+\subsection{Una brevissima storia della complessità}
+Trattare il tema della complessità è generalmente qualcosa di molto difficile da fare per la natura sfuggente del termine. Innanzitutto, complessità è ormai diventata una buzzword spesso priva di significato proprio. Inoltre non esiste una definizione condivisa di cosa sia la complessità a livello scientifico [@horgan2015, citato in @holt2011, elenca 45 differenti idee da cui partire per cercare una definizione di complessità], rendendo difficile trattare con precisione l'argomento.
+
+La causa di ciò credo divenga evidente una volta che si guarda il problema della definizione di complessità da una prospettiva storica. 
+
+Una lista di ciò che oggi è senza dubbio oggetto di studio da parte della teoria della complessità non può non contenere, tra le altre cose, i sistemi dinamici (in particolare il caos deterministico e la teoria delle biforcazioni) e la meccanica statistica. Per entrambe le discipline di studio è possibile ricondurne la nascita (o almeno un momento fondativo) agli anni 1870, quando Poincaré pubblicò i primi lavori sulle ricorrenze e Boltzmann presentò i primi risultati su cui fondare la meccanica statistica.
+
+D'altra parte, il termine complessità entra nel lessico scientifico con l'articolo di @anderson1972 del 1972 "More is Different", che apre mettendo in discussione il paradigma riduzionista su cui si basa la scienza moderna, riconoscendo che sebbene si possa creare una gerarchia di scienze secondo la visione riduzionista (ad esempio fisica -> chimica -> biologia -> fisiologia -> psicologia -> sociologia) non è sostenibile affermare che "X è semplicemente Y applicata".
+
+Nel momento in cui Anderson pubblica il suo articolo, però, sono già stati sviluppati numerosi metodi matematici per gestire i "sistemi complessi" e si è già diffuso un \textit{senso comune} su quali problemi siano oggetto di studio da parte della teoria della complessità (come citato prima i sistemi dinamici e la termodinamica, a cui possiamo aggiungere, senza pretesa di esaustività, la teoria dell'informazione, i processi stocastici, i modelli computazionali ad agenti, la teoria dei giochi, la teoria dei grafi o delle reti). In altre parole, nel momento in cui compare una definizione e un tentativo di fondare metodologicamente il campo di ricerca, lo sviluppo delle tecniche matematiche per indagarlo è già avanzato e si è sviluppato in una prospettiva riduzionista.
+
+Compare qui una tensione che è probabilmente il punto focale dell'articolo: seguendo Anderson la complessità non può che essere riduzionista ma i metodi matematici della teoria della complessità nascono in una prospettiva riduzionista.
+
+Torniamo alla meccanica statistica come archetipo. Il problema che essa risolve è di ricondurre un fenomeno macroscopico (le leggi della termodinamica e l'irreversibilità dei processi fisici) alle leggi microscopiche note (la dinamica molecolare) come prescritto dal paradigma riduzionista.  Ciò elimina la necessità di avere due differenti teorie per il microscopico e il macroscopico, riconducendo i fenomeni macroscopici a manifestazioni di leggi microscopiche.
+
+Ciò in teoria. Nella pratica le leggi macroscopiche rimangono correntemente in uso per ragioni di semplicità e adeguatezza, perché descrivono meglio la realtà macroscopica e restituiscono rappresentazioni più semplici da usare e che sono comunque sufficientemente accurate. Inoltre, la meccanica statistica ha creato una nuova descrizione mesoscopica dove le leggi microscopiche e macroscopiche si toccano descrivendo fenomeni che possono essere spiegati però solo da un terzo gruppo di leggi (mesoscopiche).
+
+In questo senso possiamo tornare all'intuizione di Anderson: nel momento in cui si prova a ridurre il macroscopico al microscopico si perde in accuratezza nella descrizione del macroscopico (o almeno di praticità) mentre si esplora un'area grigia che non appartiene né al macroscopico né al microscopico e, al contempo, appartiene ad entrambi.
+
+\subsection{Definizioni}
+
+Si può, come esperimento mentale, pensare di riuscire a creare una descrizione del sapere così comprensiva, al contempo analitica e sintetica, da rendere ogni altra obsoleta, ma non si discosterebbe molto da una mappa 1:1, sulla cui inutilità hanno scritto, meglio di me, Eco e Borges.
+
+Dobbiamo allora riconoscere che ogni descrizione del reale non può che essere parziale, centrata su qualche elemento di interesse mentre ne tralascia, inevitabilmente, altri.
+
+La complessità è questo: riconoscere che il mondo è composto da troppe cose, legate da troppi nessi e relazioni, per poterle isolare una alla volta o studiarle tutte insieme con precisioni. Invece, si può ragionare su quali siano, di volta in volta, le cose importanti da mettere a fuoco, l'ingrandimento necessario per vedere ciò che mi interessa. Sapendo però cosa non sto vedendo, ed essendo consapevoli del perché si è deciso di lasciare alcune cose fuori dal campo visivo.
+
+Una scala è, alla fine, un aspetto del sistema, una sua area semantica e concettuale, che possa essere analizzato da punti di vista diversi e con differenti livelli di dettaglio.
+
+
+Per procedere oltre nella discussione è probabilmente necessario quantomeno avvicinarsi a una definizione dell'oggetto di studio: la complessità.
+
+I concetti che più spesso vengono associati a quest'idea sono la relazione tra le parti e il tutto, la differenza tra comportamenti individuali e collettivi, le proprietà emergenti, le relazioni tra le parti, la non-linearità [La non-linearità sembra un po' la carta spaiata nell'elenco, ma la sua relazione con gli altri elementi è semplice da mostrare. Pensiamo a un insieme di elementi xi e pensiamo di aggregarli sommandoli come X=Sxi. Allora il cambiamento dell'aggregato al cambiamento di uno degli elementi dell'insieme è DX=Dxi, identificando i cambiamenti macro e microscopici ed eliminando la necessità di due rappresentazioni diverse. Un caso forse più comune, ma analogo, in economia è quello della log-linearità quando la funzione di aggregazione è il prodotto, ovvero X = log(Pxi) e DX=Dlog(xi).].
+
+Ciò giustifica l'uso intercambiabile di \textit{complessità} e \textit{sistema complesso} (ad esempio fisica della complessità o fisica dei sistemi complessi): la differenza tra un sistema e un più generico ente risiede nell'assumere la divisibilità del primo in costituenti in relazione tra loro. 
+
+Ciò giustifica l'uso intercambiable di complessità e sistema complesso, ad esempio fisiche complessità
+o fisiche sistemi complessi.
+Differenza tra un sistema più generico e ente risade nella sua divisità del primo
+incostituente in relazione tra loro, caratteristica necessaria per molte delle espressioni che
+abbiamo elencato prima.
+La definizione che provo a dare di sistema complesso è quindi che un sistema è complesso
+quando deve essere descritto differentemente a diverse scale, su diversi livelli di diverse
+scale.
+Nel fare ciò sto introducendo il concetto di scala e per spiegarlo un po' meglio ricorrerò
+a una metafora.
+Pensiamo a un vetrino sul microscopio, un singolo campione, questo campione però appare
+in maniera molto diversa a seconda del piano focale che usiamo o del livello di zoom che
+usiamo.
+In qualche modo noi stiamo introducendo due dimensioni lungo le quali il nostro modo di
+osservare l'oggetto varia.
+La percezione che abbiamo dell'oggetto e quindi le caratteristiche e le proprietà che possiamo
+ricavarne sono diverse a ciascun livello di queste scale e a ciascuna combinazione dei
+livelli su queste scale.
+Ora, esempi più tipici di cosa può essere una scala sono la scala geografica, quindi
+per esempio se pensiamo al sistema economico descrivere differentemente ciò che succede
+a livello di una città, di un distretto industriale, di una nazione, di un continente dell'intero
+mercato globale, oppure una scala temporale, cioè distinguere tra fenomeni di breve periodo,
+per esempio i modelli a capitale fisso, e modelli di lungo periodo, con tutto il problema
+di come descriviamo il lungo periodo.
+Nota, quello del lungo periodo è un esempio particolarmente interessante, perché ci permette
+di evidenziare come differenti modi di guardare lo stesso punto sulla scala ci portano a osservare
+proprietà diverse.
+In economia abbiamo storicamente differenti modi di guardare il lungo periodo, fra di
+essi ci sono l'approccio neoclassico che assume l'esistenza di un equilibrio di lungo periodo
+e un sistema che rilassi verso questo equilibrio, l'approccio poschinesiano che assume una moltitudine
+di stati stazionari, quindi possiamo dire di equilibri instabili nel lungo periodo, con
+la possibilità di passare da uno all'altro, l'approccio marxiano che descrive qualitativamente
+alcune caratteristiche della dinamica verso il lungo periodo, senza descrivere il punto
+di arrivo, o meglio una stabilità, un qualche tipo di stabilità studiabile nel lungo periodo,
+quindi se vogliamo un discorso più sulle derivate che sulle funzioni, è l'approccio
+caotico, ovvero che assumendo che l'economia sia un sistema caotico, divenga impossibile
+studiare il comportamento di lungo periodo, perché qualunque rappresentazione accumula
+degli errori troppo grandi superato il breve periodo.
+A fianco a queste ci sono delle scale meno canoniche, per esempio una scala di aggregazione
+in cui noi possiamo pensare di studiare come cambia il comportamento di un individuo, di
+individui, di una società e così via, e quindi di come inserendo i concetti di molteplicità
+e di relazione, queste vanno a influenzare il comportamento del singolo e quindi il fatto
+che alcune caratteristiche del comportamento del gruppo non possono essere spiegate esclusivamente
+in funzione del comportamento del singolo.
+In altri casi quello che chiamo scala è meno evidentemente una scala.
+Pensiamo per esempio alla questione di genere.
+Uno stesso fenomeno può essere studiato ignorando il genere dei soggetti coinvolti, può essere
+studiato approssimando i soggetti biologici con il loro sesso biologico in una prospettiva
+binaria, può essere studiato mantenendo la prospettiva binaria ma guardando al genere
+dei soggetti sotto studio o può essere studiato in una prospettiva queer, quindi includendo
+una molteplicità e una pluralità di approcci.
+Quindi la definizione che propongo va a identificare come sistema complesso qualunque sistema che
+cambi le proprie caratteristiche a seconda del punto di osservazione, qualunque sistema
+che non si mantenga uguale a se stesso e coerente sotto ogni punto di vista.
+E' probabile che nella realtà qualunque sistema sia allora complesso secondo questa
+definizione e c'è evidenza l'importanza delle approssimazioni che facciamo nello studiare
+un sistema o un fenomeno.
+Riformulando la definizione possiamo dire che un sistema, una certa approssimazione
+di un sistema non è complessa se quell'approssimazione è valida indipendentemente dal livello in
+cui osserviamo il sistema.
+Dall'altra parte
+questa definizione riesce a riassumere, credo, tutte le differenti intuizioni che vengono
+state date, nel senso che indipendentemente da quale sia la scala lungo la quale avviene
+un cambiamento del sistema, la definizione è sufficientemente astratta per accoglierla,
+che sia il comportamento di breve e di lungo periodo di un sistema dinamico, che sia la
+differenza tra comportamento individuale e comportamento emergente di un'aggregazione
+di elementi, che sia anche la richiesta di non linearità, vedi la nota precedente in
+cui è la non linearità che introduce una differenza fra i cambiamenti
+osservati a due livelli, cioè in qualche modo, no va bene.
+
+\subsection{Complessità come meta-teoria}
+Data la definizione possiamo chiederci su quali siano le conseguenze di questa definizione
+sul modo di fare scienza e quindi di sviluppare delle teorie scientifiche.
+Innanzitutto quello che osserviamo è che questa definizione complessità non ci dà
+nessun tipo di conoscenza specifica, ma si limita a prescrivere un modo di osservare le cose.
+In qualche modo dà un'intuizione non tanto di che tipo di conoscenza noi possiamo estrarre
+da un sistema complesso, ma di come dobbiamo affrontare un sistema complesso per estrarne
+della conoscenza. In questo senso credo si possa dire che la complessità può essere vista
+come una meta teoria, cioè una teoria su come fare le teorie quando intese in senso epistemico.
+Sebbene questa definizione valga anche laddove si mantenga un paradigma riduzionista in cui
+in qualche modo le differenti rappresentazioni sono legate da un formalismo matematico da un'altra
+forma di riduzione di un livello all'altro e quindi individuando su ogni scala un livello
+principe sulla base del quale possono essere spiegati tutti gli altri. Dall'altra parte è
+più intuitivo intendere questa definizione come riconoscere che cambiando il punto di vista,
+il punto di osservazione, le premesse, gli scopi dell'osservazione cambiano le caratteristiche
+dell'oggetto di studio che siamo in grado di evidenziare e quindi in qualche modo rifiuta
+l'idea di una teoria del tutto e di un punto di vista privilegiato. Sostituendo a questo invece
+una riflessione più attenta sulle premesse che ci permettano di circoscrivere quali intervalli
+delle diverse scale ci interessano e sulla base di quelle andare a sviluppare delle teorie che siano
+specifiche per ogni problema in questione. In altre parole, se rifiutiamo l'idea di un
+punto di vista privilegiato, quello che la complessità suggerisce è di partire dalla
+domanda di ricerca. Individuare quali sono?
+Le scale rilevanti per studiare il problema, quindi le scale lungo le quali il fenomeno muta
+al cambiare il punto di osservazione sulla scala e su ogni scala individuare qual è l'intervallo
+di livelli, l'area, l'intervallo sulla scala in cui il fenomeno che vogliamo studiare si
+presenta. E sulla base di queste premesse dell'analisi del fenomeno che vogliamo studiare, andare
+a costruire delle teorie specifiche. In questo senso possiamo secondo me parlare di complessità
+come meta-teoria, nel senso di come insieme di procedure operazionali necessarie per sviluppare
+una teoria scientifica, cioè una teoria su come costruire teorie.
+Del perché questo approccio è minoritario e in qualche modo è difficile intravederne
+un ruolo portante nel futuro dell'università, ne parlerò alla fine dell'articolo. Voglio però
+sottolineare una cosa prima. Un dibattito vivo in molte discipline tra cui l'economia è quella
+dell'esistenza, della coesistenza di teorie alternative. È il problema di scegliere una teoria rispetto
+all'altra. Particolarmente nelle scienze sociali e in economia più che in altre, questo è il problema del pluralismo,
+cioè dell'idea che nella disciplina devono coesistere una pluralità di teorie diverse che
+esprimono sensibilità diverse eccetera eccetera. Teorie tra loro alternative potenzialmente
+inconciliabili, ciascuna che cerca di essere la teoria definitiva. Possiamo vedere questa cosa
+anche in fisica, prendendo la disciplina scientifica, dove ci sono teorie contrapposte ancora oggi
+della fisica delle alte energie, ma più interessante per il nostro caso ci sono teorie diverse di
+cui alcune che i fisici considerano sperimentalmente sbagliati per la termodinamica, per l'elettromagnetismo,
+per la dinamica, nel senso che ci sono alcune teorie vecchie che vengono viste come casi specifici
+di una teoria più generale in un paradigma riduzionista, ma che attualmente vengono
+continuamente utilizzate nel quotidiano. Quello che voglio evidenziare è che il pluralismo nasce
+dall'idea di una teoria del tutto, nasce dall'idea che esista una sola teoria giusta che debba essere
+adatta a spiegare, tornando sul lessico di questo articolo, ogni livello di ogni scala e quindi che
+necessariamente queste teorie devono essere viste in competizione tra loro. Competizione che nelle scienze dure
+sempre, talvolta anche nelle scienze sociali, dovrebbe basarsi sulla capacità di replicare
+dati sperimentali, col problema dati empirici. Quello che invece stiamo delineando è un approccio epistemico
+in cui ogni teoria è necessariamente contestuale, cioè ogni teoria riconosce dei limiti al proprio dominio di applicazione,
+inteso come degli intervalli su alcune scale in cui è adatta e degli intervalli su altre scale in cui non è adatta.
+In questo senso credo che la complessità rifiuti, la complessità in senso epistemico, debba rifiutare l'idea di pluralismo,
+sostituendola ad un'idea di convivenza di teorie con scopi differenti, con scopi e domini di applicazioni differenti.
+Da una parte la complessità ci dice di non buttare via la fisica newtoniana o l'elettromagnetismo classico, anche se sono sbagliati,
+perché ci sono certe scale temporali e spaziali, perlopiù, dove quelle teorie sono factualmente corrette, più maneggevoli,
+e ugualmente adatte allo scopo.
+Un esempio dell'economia può essere invece lo studio dei fenomeni di lungo periodo.
+Ci sono essenzialmente almeno quattro modi diversi nella storia dell'economia di descrivere il lungo periodo.
+Ciascuno di questi è sostanzialmente valido a fine prova contraria, visto l'impossibilità di descrivere con accuratezza il futuro.
+Il primo è quello neoclassico per cui l'economia ha dei punti di equilibrio stabili e quindi, in assenza di eventi catastrofici,
+l'economia nel lungo periodo raggiungerà uno di questi equilibri stabili e ci rimarrà.
+C'è un approccio più poskenesiano in cui gli equilibri sono invece riconosciuti come multipli instabili
+e quindi l'economia nel lungo periodo raggiungerà dei regimi stabili per un certo periodo,
+ma potrà per piccole fluttuazioni spostarsi su altri regimi ed eventualmente muoversi tra regimi diversi.
+Quindi di un futuro in equilibrio instabile.
+C'è un approccio più tipicamente marxista in cui non viene descritto il punto di arrivo del futuro,
+ma alcune caratteristiche della dinamica che portano a questo punto di arrivo.
+E c'è infine un approccio complesso in cui l'economia viene vista come un sistema caotico
+e quindi esiste un orizzonte degli eventi oltre il quale è impossibile fare qualunque tipo di analisi.
+Ciascuna di queste quattro teorie permette di studiare cose diverse sul futuro.
+Ciascuna di queste quattro rappresentazioni permette di rispondere a domande diverse sul futuro.
+C'è qualche motivo evidente per cui noi dovremmo preferire una scienza in cui
+qualcuna di queste visioni manca, perché deve esserci un vincitore,
+o è più utile accettare che ciascuna di queste quattro rappresentazioni
+sul futuro ha un suo dominio di applicazione, ha delle ipotesi implicite su che tipo di futuro.
+Per esempio, cosa sono gli eventi catastrofici o i tempi non normali che invalidano la teoria neoclassica,
+ma che all'interno di quelle ipotesi esplicito implicite, ciascuna di queste quattro visioni è utile,
+perché ciascuna di queste quattro visioni ci dà degli strumenti concettuali diversi, complementari,
+per rispondere a delle domande di ricerca, quindi a delle domande di comprensione del mondo.
+In questo senso, trovo un po' inutile il dibattito su quale livello di pluralismo sia necessario
+citare paper sul pluralismo ragionevole.
+In quanto credo che il punto sia adottare un approccio laico in cui le diverse teorie non vengono
+viste in competizione tra loro, ma come complementari agendo su livelli diversi di diverse scale.
+Ancora con un esempio dall'economia, alcune ipotesi del modello neoclassico,
+per esempio la massimizzazione dei profitti, l'accesso a informazione quasi perfetta,
+la possibilità di lavorare su quantità continue non discrete, si applicano abbastanza bene a grosse aziende.
+Quindi, forse, per studiare l'economia di una grossa azienda, quella teoria ha senso,
+perché ha delle ipotesi che ci pongono su certi livelli di alcune scale,
+per esempio su una scala della disponibilità di informazione il livello di conoscenza dell'ambiente,
+e su quelle segne e le domande che cerca una risposta su quei segmenti di quelle scale,
+beneficiano di quella teoria.
+Il punto fondamentale è riconoscere quali sono le ipotesi implicite e esplicite della teoria,
+e quindi fin dove questa si applichi, e non portarla fuori dal suo dominio di applicazione.
+Cercare frase ad effetto su una scelta, su una scienza laica, e non plurale.
+
+Descrivere inoltre implica un'analisi accurata dell'oggetto di studio, senza, almeno in primo luogo, scorciatoie e apprrossimazioni. In alcuni contesti è possibile che si possa descrivere con cura e minuzia usando il linguaggio formale della matematica o una lingua che non si padroneggia perfettamente, ma in generale se descrivere (e quindi, forse, comprendere) è un aspetto fondamentale per esplorare ciò che è complesso, un ritorno all'uso del proprio linguaggio naturale (e forse anche l'uso di una multi-medialità) diventa una pratica imprescindibile.
+
+In qualche modo invece, ciò che sto provando a delineare è una metodologia del particolare e dell'unico, del riconoscere che i tratti importanti di un sistema sono molteplici e differenti a seconda dello scopo, della domanda. Ed è nel riconoscere il ruolo organico del particolare all'interno del generale, invece che rappresentare invece il particolare come variazione sul tema del generale, che il paradigma della complessità può divenire uno strumento di dialogo tra discipline, una categoria di pensiero applicabile alla realtà generale e, forse, il motore di un cambio di paradigma scientifico.
+
+Questa sensibilità al particolare invita anche a recuperare i metodi qualitativi della ricerca affianco a quelli quantititativi, perché in grado di esplorare lo stesso fenomeno a livelli diversi, dandone una conoscenza non contraddittoria, come può sembrare, ma sfacettata e complementare.
+
+È una prospettiva di cura e democratizzante, perché restituisce all'esperienza umana individuale una dimensione propria non come variazione di un tipo generale, ma come portatrice di particolarità proprie osservabili solo su ci si pone al giusto livello della giusta scala.
+
+
+\section{Sull'Economia}
+La seconda parte di questo articolo cerca di contestualizzare quello che abbiamo detto
+fino ad adesso all'economia, individuando in particolare tre relazioni architipiche
+tra complessità ed economia. Per arrivare lì però serve un minimo di panoramica storica.
+A fine 900, non del tutto casualmente allo stesso periodo in cui nascono i metodi matematici
+della complessità, si sviluppa in economia il cosiddetto paradigma marginalista che è
+un approccio di ricerca ispirato ai principi riduzionistici. Il paradigma marginalista
+cerca di ricondurre lo studio dell'economia a le scelte di agenti economici che massimizzino
+dei trade-off, delle funzioni target. E in particolare, guardando coppie o gruppi di agenti,
+il problema si riduce a trovare una situazione in cui nessuna variazione, i margini, convenga
+solo ad alcuni agenti e si aderettere a per altri. Il principio di ottimalità secondo pareto.
+Sulla base di questa idea molto semplice che si porta dietro un preciso corredo di strumenti
+matematici, tendenzialmente quelli dell'analisi matematica, la scuola marginalista costruisce
+dal basso in alto, deduttivamente, un'intera teoria economica. Quindi partendo dalla descrizione
+del comportamento di un agente, questi assunti di base vengono utilizzati per descrivere il
+comportamento di un consumatore, di un'azienda, di un governo, per descrivere l'interazione fra
+questi e via via fino ai modelli macroeconomici. La presenza di un nocciolo teorico estremamente
+ben definito e limitato, sulla base del quale costruire deduttivamente il resto della teoria,
+è la tipica premessa marginalista, è la tipica premessa riduzionista, in cui l'obiettivo della
+teoria è quello di individuare un nocciolo piccolo e limitato da cui sia possibile dedurre tutto il
+resto. Questo approccio diventa assolutamente dominante tra i anni 70-80, in cui possiamo
+osservare un esempio paradigmatico di perché il marginalismo sia riduzionista. Prima di questo,
+cittare o mettere forse in nota come la definizione di Robbins sposta l'attenzione
+dai temi di ricerca ai metodi di ricerca, identificando quindi la disciplina col nocciolo
+di assunzioni teoriche e quindi imponendo alla disciplina di basarsi su quel noccio
+di assunzioni teoriche, di nuovo in una prospettiva riduzionista, in cui quel noccio di assunzioni
+teoriche, di premesse teoriche, deve reggere tutta la disciplina. Nel paper del 72 di Lucas,
+Lucas formula la sua famosa critica, che è essenzialmente una critica di complessità.
+Nel senso che vengono riconosciuti due livelli, le scelte individuali e la dinamica degli aggregati,
+viene riconosciuta la necessità di dei meccanismi di feedback fra questi due livelli,
+di feedback complessi che cambino sostanzialmente la relazione fra le due cose.
+E quindi in qualche modo di creare un collegamento fra macroeconomia e microeconomia.
+Volendo però rimanere nell'approccio marginalista, si sollevano due problemi. Il primo è che è
+necessario identificare uno dei due livelli con l'altro, invece che creare una dinamica meso che
+faccia da ponte fra le due cose. Ed essendo riduzionista, questo livello non può che
+essere quello microscopico, quello microeconomico, dove si applicano gli assomi dei fondamenti
+teorici della teoria a cui si fa riferimento.
+Mettere in nota brevemente che il problema delle microfondazioni è un falso problema,
+nel senso che se posiziamo una dinamica degli aggregati flessibile abbastanza e soprattutto
+non lineare abbastanza, non è impossibile riconoscere la critica di Lucas, cioè avere
+dei modelli che cambiano qualitativamente il proprio comportamento al cambiare di certi
+parametri, senza dover per forza esplicitamente inserire una descrizione del comportamento
+individuale. Un luogo dove cercare per ciò è per esempio la teoria delle bifurcazioni.
+Tra le assunzioni nel nocciolo fondamentale della teoria neoclassica c'è quella della
+possibilità analitica dei problemi e della ricerca di soluzioni analitiche. Cita Serrier.
+Come conseguenza una vera microfondazione all'aggregato sul modello delle macchinacce
+statistica di Boltzmann è preclusa all'economia. Nota, il tassello mancante per applicare la
+meccanica statistica all'economia è l'esistenza di una quantità conservata, nel senso che
+il valore dei beni in economia non si conserva, ma può variare al cambiamento dei prezzi,
+e non solo delle quantità, e non c'è altro candidato che permetta di mettere insieme
+diverse di attività economica. Come ci insegna il problema di misurare attività economica
+che viene fatta tendenzialmente utilizzando il GDP, perché la conversione in valore è
+lo strumento sviluppato in economia in valore monetario, per comparare cose diverse. Ciò
+apre, ma non è intenzione mia di scuterlo qua, il problema di cosa sia il valore e come
+misurarlo correttamente. Quindi in assenza degli strumenti analitici o meglio delle ipotesi
+sufficientemente restrittive per rendere il modello ben educato rispetto alla necessità
+di una microfondazione esplicita sul modello delle macchiniche statistiche di Boltzmann,
+la strada percorsa da Lucas è quella dell'identificazione dei due livelli, cioè di descrivere il macro
+come micro, in qualche modo ignorando la sua stessa intuizione di dualità tra macroscopico
+e microscopico. Probabilmente in nota, la giustificazione di ciò a livello retorico
+di approssimazione del tutto come una sua parte, non trova giustificazione matematica
+come mostrato in Kierman 92. Ed è nel periodo dell'affermarsi della teoria neoclassica
+erede della teoria, ed è nel periodo dell'affermarsi gli sviluppi della teoria marginalista come
+teoria hegemonica in economia, che al Santa Fe Institute si comincia a ragionare di come
+integrare questo nuovo paradigma nello studio dell'economia, il paradigma della complessità.
+I primi workshop esplorativi vedo una partecipazione tra gli altri di Anderson, citato all'inizio
+del paper, Arrow e Brian Arthur. Fontana 2010 riporta che Arrow recupera la citazione
+dalle slide di Ancona, in qualche modo mantenendo la prospettiva riduzionista e sognando di riuscire
+a realizzare quanto fatto da Boltzmann con la meccanica statistica. Cioè di usare
+complessità per unire e migliorare teorie, senza perdere però l'approccio deduttivo-riduzionista.
+L'importanza dato dal marginalismo in poi al mantenere un approccio deduttivo e riduzionista
+ha probabilmente a che fare col tentativo di distaccare l'economia dalle altre scienze
+sociali e avvicinarla alle scienze naturali, in particolare alla fisica, adottando nei metodi.
+D'altra parte, però, la direzione del Cento per l'economia passa rapidamente a Brian Arthur,
+che invece insedia a Santa Fe un programma diverso, che cerca effettivamente, seguendo
+l'intuizione di Anderson, di utilizzare la complessità in senso epistemico, avvicinandosi
+molto a quello che prima abbiamo scritto come meta-teoria, sviluppando in qualche modo una
+scuola di pensiero originale e in necessaria contrapposizione all'approccio neoclassico-riduzionista.
+Cita Brian21 e l'Altro Fontana 2010 dopo la prossima frase.
+L'alternatività del paradigma sviluppato da Arthur, noto come economia della complessità
+o prospettiva di Santa Fe. La necessità dell'alternatività di quest'approccio a quello neoclassico risiede
+esattamente in quanto stiamo dicendo all'inizio dell'articolo, cioè che, seguendo l'intuizione
+di Anderson, la complessità non può che essere non riduzionista, mentre la teoria neoclassica è essenzialmente riduzionista.
+In qualche modo l'approccio di Arthur ritorna a uno stile più classico di fare economia,
+in cui i problemi sono trattati un alla volta ed eventualmente messi a sistema, senza la
+necessità di sviluppare una teoria del tutto, a priori. E così facendo si riescono a reintrodurre
+una serie di scale di livelli su questi che invece sono essenzialmente trascurati nella
+teoria marginalista, perché è incapace di essere descritti effettivamente del suo nucleo di assioni,
+tra cui quello della trattenibilità analitica. Nello stesso periodo, agli anni 80-900, con l'arrivo
+dell'automazione dei calcolatori, si fa spazio nell'economia la possibilità di risolvere problemi
+computazionalmente, e di, come conseguenza, progressivamente rilassare almeno in parte
+le premesse, la richiesta di analiticità delle soluzioni. L'approccio computazionale è fin da subito molto presente
+nell'economia della complessità, mentre la sua relazione con l'economia neoclassica è più lenta e meno lineare.
+Citaro un po' di Roba de Scherrier.
+Questi tre blocchi costitutivi, la teoria neoclassica, la prospettiva di Santa Fe e l'adozione di tecniche
+computazionali, sono i tre blocchi su cui ancora oggi, quaranta anni dopo, possiamo provare a descrivere
+la relazione tra complessità ed economia.
+Individuo appunto tre relazioni archietipiche, ovvero tre modi in cui la complessità è entrata a far parte
+della disciplina economica. Chiaramente sono archietipi, quindi esistono dei lavori che si pongono in posizioni
+intermedia tra due, o forse anche tre di essi, ma ci servono per orientarci, per orientare il discorso
+e per provare a descrivere in maniera efficace lo stato oggi della disciplina.
+La prima relazione archietipica è quella che delineava Harrow, e che mi piace definire post-neoclassica, prima di questo.
+Tre tasselli su cui costruire.
+L'ultimo elemento di contesto che voglio sottolineare, che voglio mettere sul tavolo, è la descrizione che Davis ed altri
+fanno dello sviluppo dell'economia, particolarmente negli ultimi vent'anni, particolarmente dopo la grande crisi finanziaria.
+In cui riconoscono una nota.
+Aggiungere prima un discorso sulla parte del pluralismo di città, sul fatto che è accettabile trovare esperienze diverse
+per uno stesso fenomeno in una scienza non sperimentale, e che in realtà anche gli sperimenti sono delle scelte,
+probabilmente in una nota pie di pagina.
+Davis ed altri riconoscono un patent di specializzazione negli sviluppi dell'economia moderna.
+In cui ha assunto un cuore neoclassico, che non viene sostanzialmente messo in discussione, ma che dall'altra parte
+ha in qualche modo finito la sua capacità propria di sviluppare una nuova teoria, attorno a questo cuore neoclassico
+Adesso si sviluppano filoni di ricerca differenti, che rilassano o modificano alcune ipotesi sul comportamento degli agenti
+In cui riconoscono un discorso sulla trattabilità analitica, creando delle branche di specializzazione
+che sebbene condividano un'origine comune, si sono distanziate al punto da essere di fatto non comunicanti tra loro
+E quindi rendendo difficile, a differenza di quanto succedeva il passato, la partecipazione di uno studioso al dibattito
+in più di uno di questi filoni di ricerca
+Questo fenomeno loro lo definiscono mainstream pluralism
+Per evidenziare che sono comparse una pluralità di teorie su problemi specifici dell'economia
+ma che in qualche modo rimangono tutte all'interno di una grande famiglia di impostazione neoclassica che ancora costituisce il mainstream della disciplina
+Aggiungere una nota più di pagina con un esempio di alcune di queste sottobranche
+con alcuni esempi, per esempio l'economia ambientale con il problema di prezzare cose non prezzate
+E quindi di inferire dei prezzi in assenza di mercato
+L'economia comportamentale che assume la possibilità di funzioni di utilità meno lisce o con termini di interazioni, eccetera, eccetera
+E poi pensaci un po' nei prossimi giorni
+L'altro elemento di contesto che serve è, più o meno nello stesso periodo, la progressiva empirizzazione della disciplina economica
+Quindi un passaggio da una presenza molto forte della teoria
+ha un approccio che invece si basa molto di più su un'analisi quantitativa dei dati
+in cui la teoria gioca un ruolo marginale, per esempio nell'ispirare il tipo di metodi usati
+nota sulla relazione tra regressioni lineari e teoria neoclassica, essendo che entrambi si concentrano sui margini
+o addirittura, escludendo del tutto la teoria, come in approcci più moderni basati sul machine learning
+o su altre tecniche statistiche avanzate
+Questa empirizzazione della disciplina può essere vista come una risposta alle crisi d'inizio secolo
+per cui la teoria neoclassica non ha proposto dei grandi framework concettuali per supportarle
+La maggiore disponibilità di computer e strumenti di calcolo
+Il rapporto tra mainstream pluralism e empirizzazione non è necessario
+ma vale la pena far notare che molti degli approcci riconosciuti nel mainstream pluralism
+in qualche modo superano la teoria neoclassica per spiegare meglio i fenomeni empirici
+e fanno proprie tecniche sperimentali e altre tecniche di analisi dati
+in qualche modo contribuendo a un progressivo spostamento della disciplina su basi meno teoriche e più empiriche
+I tre architipi li registri un'altra volta
+
+In tutto ciò non sarebbe però corretto, al di là dell'anacronismo, affermare che i (primi) marginalisti non riconoscessero la natura complessa del sistema economico.
+\textcite[p. 20]{marshall1988} nei \textit{Principia} scrive che "La società è qualcosa in più della somma delle vite dei singoli"\footnote{"Society is something more than the sum of the lives of its individual members." (traduzione mia).}, richiamando di fatto il concetto di emergenza che è uno dei pilastri dello studio dei sistemi complessi.
+
+
+La distanza però tra parole e pratiche ritorna anni più tardi in un momento fondamentale dello studio della macroeconomia quando la critica di Lucas \parencite{lucas1976} porta all'introduzione del concetto di microfondazione e all'abbandono nella tradizione neoclassica dei modelli macroeconomici aggregati di stampo keynesiano.
+
+Lucas scrisse che "Dato che la struttura di un modello econometrico si basa sulle regole degli agenti per ottenere una decisione ottimale, e che queste regole variano sistematicamente quando occorrono dei cambiamenti nella struttura delle serie rilevanti per colui che deve prendere la decisione, allora ogni cambiamento nelle politiche altererà sistematicamente la struttura del modello econometrico"\footnote{"Given that the structure of an econometric model consists of optimal decision rules of economic agents, and that optimal decision rules vary systematically with changes in the structure of series relevant to the decision maker, it follows that any change in policy will systematically alter the structure of econometric models." \parencite{lucas1976} (traduzione mia).}.
+
+\subsection{Complessità neo-empirica}
+La prima delle tre relazioni archietipiche è quella che possiamo definire neoempirica.
+Si inserisce appunto in un filone di ricerca che si muove progressivamente da un approccio
+principalmente teorico, un approccio principalmente applicato di creazione di conoscenza
+con un'enorme scusione sulla generalizzabilità di questa conoscenza che si potrebbe fare
+attraverso la ricerca di relazioni causali di pattern nei dati.
+Nella sua versione più semplice, la svolta neoempirica in economia si manifesta con tutta una serie di studi
+che si allontanano spesso dai temi classici dell'economia
+e che possiamo raggruppare per le scelte tecniche che fanno, per gli strumenti che usano.
+Tipicamente evoluzioni del modello di regrezione lineare come gli studi difference in difference,
+le procedure di matching, i randomized control trials e i quasi esperimenti,
+ovvero un insieme di tecniche che cercano da un insieme di dati che possono essere divisi in due o più gruppi
+che differiscono per qualche caratteristica, cercare di recuperare le determinanti di questa caratteristica che distingue i gruppi.
+Chiaramente questo tipo di analisi ha innanzitutto un grosso limite, cioè che tende a concentrarsi su differenze al primo ordine
+e su problemi che possono in qualche modo essere delineati in un senso di relazione causale,
+di confronto fra sottogruppi.
+E' velocemente evidente che la possibilità di usare rappresentazioni più complesse o metodi di analisi più complessi
+come ad esempio la teoria delle reti o numerosi algoritmi di machine learning permetta in qualche modo di ampliare il tipo di analisi che si può svolgere.
+Un esempio architipico è il lavoro di Aidalgo sull'indice di complessità economica,
+in cui l'unica assunzione teorica che viene svolta è che l'export di un paese sia il rappresentativo della produzione di quel paese
+e che in un approccio puramente empirico basato sull'analisi delle reti di commercio tra i paesi
+va a definire un indice di complessità di in qualche modo il livello di avanzamento delle economie mondiali,
+lavorando su quella che può sembrare una tutologia, cioè l'assunto è che paesi ad economia avanzata producono beni avanzati
+e beni avanzati vengono prodotti in paesi ad economia avanzata.
+Questa è tutta la teoria economica che c'è dietro ai lavori di Aidalgo,
+che possiamo dire che da un certo punto di vista è geniale, nel senso che con una descrizione tutto sommato semplice,
+stilizzata e un buon uso dei dati, riesce a ottenere dei risultati che in qualche modo si allino nell'intuizione.
+Ma ci rende estremamente difficile problematizzare che cosa sia un'economia avanzata, perché un'economia avanzata sia tale
+e quali siano i contesti istituzionali, i percorsi storici e le relazioni di potere che ci portano a riconoscere come avanzata
+un certo tipo di economia e riconoscere quello che ci aspettiamo da un'economia avanzata in certi paesi e non in altri.
+Stupidamente manca una prospettiva temporale in questo approccio e impossibile da includere se non forzatamente,
+cioè facendo una sequenza di studi in un preciso posto nel tempo, ma senza la possibilità di inserire degli effetti di lungo periodo,
+che per esempio impedisce di introdurre una prospettiva colonialista nel discorso.
+Dall'altra parte l'uso di metodi statistici sempre più avanzati come il machine learning, come le reti neurali per classificare
+o altri strumenti del genere, rende sempre più difficile distinguere il rumore dall'effetto.
+I modelli machine learning sono estremamente pronti all'overfitting, ovvero a riconoscere dei pattern anche nel rumore.
+E considerando che la qualità dei dati economici è di solito molto bassa e sono generalmente molto rumorosi,
+il fatto di muovere verso algoritmi più complessi per cercare di sfuggire da una teoria che appare probabilmente perché è parziale e politica,
+rischia di produrre una cattiva scienza, nel senso che ci priva della capacità di leggere quei dati in una maniera che permetta di evidenziare
+quali siano gli elementi davvero importanti di quei dati e quali gli elementi trascurabili. Tutto ciò una macchina non può saperlo a priori.
+E se i dati sono molto rumorosi è anche difficile inferirlo. Sono cose che noi ricercatori possiamo fare conoscendo il contesto in cui i dati sono presi,
+conoscendo il fenomeno che vogliamo studiare e riuscendo a fare una serie di assunzioni teoriche che ci permettono di distinguere
+quali sono gli elementi importanti e quindi le scale da tenere in considerazione e quali elementi è probabile che diano correlazioni spurie
+o siano solo portatori di rumore perché non c'è motivo concettuale teorico per cui debbano entrare prepotentemente nella relazione che stiamo cercando di studiare.
+
+\subsection{Complessità post-neoclassica}
+La seconda relazione è quella che, invece, amo chiamare post-neoclassica e che per tanti
+aspetti si avvicina all'idea di mainstream pluralism di Davis et alta.
+Il tipo di riflessione che da qui nasce è che la teoria mainstream ha mostrato negli ultimi vent'anni una serie di limiti.
+Nel suo essere, probabilmente perché riduzionista, eccessivamente rigida per trattare tutta una serie di situazioni reali che, per qualche motivo, sono diventati maggiori interesse, per esempio la questione ambientale o la fragilità finanziaria.
+L'approccio degli studiosi post-neoclassici, che non si riconoscono generalmente come post-neoclassici, è una distinzione che introduco io in questo momento,
+non è di rifiutare la teoria cercando rifugio in relazioni empiriche che possano essere estratte da dei dati, facendo un passo indietro e nascondendo le proprie intuizioni teoriche dietro delle procedure standardizzate.
+Ma è piuttosto quello di cercare di riflettere su quali assunzioni del proprio modello teorico creano questa rigidità e trovare dei modi tendenzialmente ancora deduttivi di aggirarle.
+In questo senso i metodi di matematica e complessità forniscono una serie di strumenti interessanti per, appunto, introdurre delle ipotesi meno restrittive,
+ma che rimangano in qualche modo risolvibili, perché portano la formalizzazione del sistema verso una di quelle categorie di sistemi che sono studiate nella teoria della complessità.
+Questo tipo di passaggio ha in realtà un esempio storico molto più antico della crisi del mainstream, che è l'adozione in microeconomia della teoria dei giochi.
+Nel momento in cui si adotta lo strumento della teoria dei giochi, e particolarmente dei giochi terrati, che sono dei sistemi complessi,
+nel senso che, per mantenere il lessico che abbiamo introdotto, introduce una scala di temporalità nell'iterazione del gioco,
+è una scala di interazione in cui l'individuo non è più solo, ma interagisce con altro,
+e quindi si crea una distinzione tra la descrizione del comportamento dell'individuo e la descrizione della coppia o del gruppo di persone che interagiscono nel gioco.
+L'introduzione a teoria dei giochi, in particolare dei giochi iterati, appunto, permette alla microeconomia neoclassica di ampliare il proprio ambito di studi,
+riuscendo a alleviare alcune ipotesi, per esempio quella di informazione perfetta, che emerge l'informazione nell'iterazione del gioco.
+E quindi diventa poi interessante andare a vedere qual è la convergenza della strategia,
+oppure nella simmetria delle funzioni di utilità, permettendo di avere funzioni di utilità simmetriche,
+vedendo come queste interagiscono verso un equilibrio piuttosto che un altro.
+E quindi questo approccio, in sintesi,
+non mira a scartare, come nell'approccio noempirico, o sostituire, come vedremo poi in un'altra prospettiva, la teoria neoclassica.
+Ma ha in una modalità riduzionista alla Boltzmann di dotarsi degli strumenti analitici o più recentemente computazionali
+che permettano di mantenere il nocciolo teorico di riferimento, l'approccio epistemico di riferimento,
+ma definire dei casi particolari in cui alcune ipotesi vengono rilassate,
+riconducendo il caso base a un caso particolare della nuova trattazione.
+Esempi più recenti possono essere l'introduzione di funzioni di utilità non lineari
+in una parte dell'economia comportamentale esperimentale
+L'utilizzo di modelli ad agenti computazionali in alcuni ambiti di teoria dell'innovazione,
+o in generale di microeconomia, in cui rinunciando alla trattabilità analitica
+e accettando una trattabilità computazionale
+si possono introdurre assimetrie informative, rigidità
+o funzioni di utilità non standard
+e osservare l'interazione tra gli agenti quanto e come si discosta
+dagli equilibri ipotizzati sotto le ipotesi più restrittive standard.
+In maniera meno evidente,
+perché non è così chiaro quali sono gli strumenti adottati,
+ma diventa evidente se lo guardiamo da un punto di vista delle scale,
+rientra senza dubbio in questo filone anche l'economia ambientale.
+Che si pone il problema di definire un prezzo per beni non di mercato.
+E quindi deve trovare una definizione di prezzo diversa da quella standard
+che si applichi anche a una definizione di prezzo diversa da quella standard
+che si applichi anche a beni di per sé non di mercato.
+
+\subsection{Complessità meta-teorica}
+La terza relazione archietipica è quella che utilizza la complessità come metatheoria
+e si sviluppa a partire dai lavori di Brian Arthur e il resto del gruppo a Santa Fe, spesso chiamata economia della complessità.
+Questo terzo archietipo è anche il più difficile a descrivere perché non ha lasciato dietro
+di sé un gran numero di lavori o una scuola ben definita, in parte per le sue naturali
+caratteristiche, in parte perché il modo di fare ricerca seguendo l'idea di una complessità
+come metatheoria si sposa male con le norme sociali dell'accademia contemporanea,
+in particolare dell'economia. Forse mettere una nota sul grado di gerarchizzazione della disciplina.
+Questo perché i lavori sviluppati in questo campo sono per lo più autoconsistenti,
+nel senso che partono da una domanda di ricerca, lavorano per sviluppare generalmente un modello
+che risponde a questa domanda e poi finiscono lì, senza generare un flusso continuo di pubblicazioni
+su argomenti simili. Questo credo che sia abbastanza conseguenza di un approccio olistico
+piuttosto che un approccio riduzionistico. Questo perché se noi partiamo da dimensione
+olistica della disciplina, l'approccio sarà quello di partire dal tutto, la realtà,
+il mondo o qualche altra forma di totale, e poi procedere per sottrazione eliminando
+quelle scale e quei livelli sulle scale per cui il nostro fenomeno di interesse,
+il fenomeno che risponde alla nostra domanda di ricerca, non si manifesta o si manifesta
+in maniera costante e quindi risultano non di interesse. Questo fa sì però che cambiando
+la domanda di ricerca, questo processo di analisi e di approssimazioni successive debba
+essere ripetuto, ogni volta per ogni nuova domanda di ricerca, portando potenzialmente
+a scartare delle scale o a spostarsi su dei livelli che non erano stati prese in considerazione
+prima. Come conseguenze di ciò, le ipotesi di lavoro tendono a essere diverse studio
+per studio, al contrario di un approccio riduzionista in cui le ipotesi di lavoro sono
+le stesse, il punto di partenza è lo stesso e quindi in qualche modo il processo di approssimazioni
+successive non è ripetuto ogni studio ma è svolto una volta all'inizio del fenomeno
+di ricerca e poi più o meno non ripetuto, a cui poi a questo corpo di ipotesi di lavoro
+vengono fatte delle piccole aggiunte, delle piccole modifiche, in questo senso si mantiene
+comunque un discorso di approssimazioni successive che permettano di rispondere a nuova domanda
+di ricerca in una maniera leggermente diversa rispetto alla vecchia domanda di ricerca.
+Viene da sé che questo approccio ha due grossi limiti. Il primo è quello di introdurre una
+fase di ricerca assente nell'approccio classico riduzionistico che è quella dell'adeguamento
+e della ridefinizione delle ipotesi di lavoro in base alla specifica domanda di ricerca,
+allungando quindi tempi per la produzione di prodotti della ricerca e quindi di materiale
+rendi contabile nelle procedure amministrative di carriera proprie dell'accademia neoliberale.
+Dall'altra parte rende più difficile inserirsi in un filone di letteratura che ti riconosca
+come parte organica di esso e che quindi ti permetta di entrare in un naturale gruppo di
+autori che tra di loro si citano perché riconoscono lavori affini, lavori simili nel senso di variazioni
+sul tema di uno stesso nocciolo iniziale da cui poter attingere dettagli, idee, soluzioni
+senza però mettere in discussione tutto l'approccio ed entrando in un gruppo di ricercatori che
+si identificano si entra in un gruppo di ricercatori che si citano migliorando le metriche che vengono
+utilizzate per i processi valutativi dell'accademia neoliberale. In sintesi quindi
+questo terzo archetipo non è riconoscibile sulla base di un particolare uso degli studenti
+matematici della complessità o di particolare ipotesi di lavoro ma da un certo modo di fare
+scienza, da un certo modo di costruire le ipotesi di lavoro con cui lo studio viene poi eseguito.
+Altro dettaglio che rende in parte più difficile creare un'identità e che spiega dall'altra parte
+molto bene in che senso la teoria della complessità in senso metateorico non è di per sé una teoria
+perché non produce un corpo coerente, almeno non in prima battuta, di metodi pratiche,
+conoscenze e ipotesi condivise, ma esplica un metodo di lavoro.
+Un metodo di lavoro che si pone in relazione essenzialmente dialettica e inclusiva rispetto
+alla teoria già sviluppata da precedenti teorie. La necessità per un approccio complesso
+di rifiutare la teoria neoclassica dominante non è strettamente sulla scelta delle ipotesi,
+ma sull'assolutizzazione delle ipotesi, sul non riconoscere, cioè che le ipotesi di lavoro
+della teoria neoclassica non sono assolute e valide per la descrizione di qualunque fenomeno
+economico, ma che debbano e possano essere usate solo per quelle domande di ricerca che,
+al termine del processo di analisi e approssimazioni successive,
+delinino un fenomeno da studiare che sia coerente con le ipotesi neoclassiche.
+Si può pensare, per esempio, che alcuni mercati finanziari o mercati costellati da
+un certo numero di grandi aziende rispecchino in fin dei conti le assunzioni neoclassiche di
+un livello di conoscenza magari non perfetta ma comune fra i vari agenti, un comportamento
+ottimizzante dei vari agenti, la presenza di variabile continua nel determinare i comportamenti
+dei vari agenti e che quindi la descrizione neoclassica dell'oligopolio o del mercato o
+del monopolio possa per questo tipo di aziende essere una buona descrizione per alcuni comportamenti
+di queste aziende, ma non perché le ipotesi neoclassiche siano a priori corrette, ma perché
+nell'analizzare il fenomeno riconosciamo che le approssimazioni che portano alle ipotesi
+neoclassiche sono, per la sensibilità dello studioso, coerenti con il fenomeno oggetto di studi.
+E anche in questo senso, come scrivevo prima, non ritengo corretto vedere l'approccio metateorico
+alla complessità come qualcosa di pluralistico, nel senso che nel pluralismo l'idea è che
+differenti teorie competano o che esistino differenti teorie, mentre il punto di vista
+che cerco di portare è che queste teorie, queste che oggi chiamiamo teorie, sono in
+realtà aspetti complementari di un'osservazione unificata, che non dobbiamo contrapporre
+una teoria poschinesiana e una teoria neochinesiana, dobbiamo riconoscere quali sono le ipotesi
+di lavoro sottostanti a queste due teorie e quindi essere in grado di riconoscere che
+una teoria economica ampia sia in grado di attingere da entrambe queste tradizioni,
+da entrambe queste fonti di conoscenza a seconda dello specifico fenomeno di interesse.
+Questa cosa la metto un po' così, forse andrà in nota, forse nel testo.
+Va la pena notare che Marc Labois, un importante esponente della scuola poschinesiana contemporanea,
+nel suo libro di testo descrive le caratteristiche che un'etero-dossia e in particolare scrive
+l'etero-dossia poschinesiana dovrebbe avere. Fra queste ci sono l'olismo, il realismo,
+la necessità di dialogare con altre discipline, altre scuole per superare i propri limiti.
+Mi sembra interessante evidenziare questo perché già si potrebbe discutere che il
+noccio di assunzioni fondamentali dell'economia poschinesiana sia tutto sommato limitato essendo
+questa bene o male un contenitore al suo interno piuttosto eterogeneo.
+Dall'altra parte sembra accennare una possibile convergenza,
+fra quanto discusso in questo paper e le pratiche di ricerca con la comunità.
+E' sicuramente un discorso da approfondire maggiormente, soprattutto nel cercare di
+individuare quale siano effettivamente le ipotesi in uso da parte di alcuni o tutti
+i tipi poschinesiani, che siano assunte come ipotesi di lavoro standard non giustificate
+da un processo di analisi e di approssimazione della realtà in base agli argomenti di studio
+tipici affrontati dalla scuola.
+
+\section{Sulla realtà}
+I want to empathize that a sincerely complex approach puts at leat as much emphasis on the processes than on the results, if not more. How a research question is chosen and how a model is tailored (and so the reasoning behind it) are a fundamental part of how research is doing and should be communicated and valorized on its own, where results remain a useful appendix of doing science.
+
+È lecito chiedersi quanto sia realistico il programma di ricerca che sto proponendo,
+il metodo di ricerca che sto proponendo.
+Dividerei questa riflessione sul realismo in due parti.
+Una prima scevra da norme sociali e limiti amministrativi e una seconda invece calata
+nel contesto contemporaneo di aziendalizzazione dell'università.
+Di per sé non è un programma di ricerca che fondamentalmente mini l'attuale modo
+di far ricerca.
+Ricchiede da parte del ricercatore una maggiore consapevolezza, soprattutto gli studi iniziali
+della ricerca, per poter riconoscere quali sono le ipotesi di lavoro che sta effettivamente
+utilizzando, al fine di poter discutere criticamente la loro relazione con l'oggetto di studi,
+con i fenomeni che si stanno studiando.
+Non mi è difficile immaginare che un approccio del genere possa portarci a dover sviluppare
+un'effettiva rivoluzione epistemica, perché il processo di approssimazione è almeno
+in parte legato alla sensibilità del ricercatore e quindi si introduce una dimensione suggestiva
+non tanto nel processo deduttivo in sé che ci porta a definire le ipotesi di lavoro,
+ma nella scelta, nella possibilità di prendere per vere certe approssimazioni, anche solo
+perché necessariamente un primo studio che voglia arrivare a definire delle proprietà
+di carattere generale dovrà tenere conto solo delle cause o delle relazioni maggiormente
+significative e quindi approssimando quelle che potremmo chiamare relazioni o correlazioni
+fenomeni di secondo ordine e distinguere cosa sia una approssimazione, cosa sia una relazione
+di primo o di secondo ordine, che quindi possa lecitamente essere approssimata in una prima
+battuta o meno, non è semplicissimo da definire, perché spesso anche approcci sperimentali
+che cerchino di definire l'intensità delle relazioni causali si basano su tutto un apparato
+teorico che a sua volta soffre del problema di dover decidere che cosa è fondamentale e cosa
+no e che quasi sempre fa uso di proxy nel momento in cui vengono svolte le misure,
+quindi introducendo un grado di arbitrarietà ed imprecisione al sistema che potenzialmente
+può vanificare il tentativo di misura. Non penso che una tale rivoluzione epistemica
+che riconosca essenzialmente la soggettività del ricercatore, quindi la contestualità dei risultati
+della ricerca, sia a priori da rifiutare in quanto irrealistica, anche perché seguendo un approccio
+di complessità con metatheoria, il ricercatore esplicita quanto più possibile il contesto,
+le proprie ipotesi e quindi in qualche modo diventa chiaro quali sono le premesse da cui
+il risultato della ricerca segue, rendendo anche facile confutare o comunque ricondurre al corretto
+ambito di applicazione pratica il risultato ottenuto. Dall'altra parte, potrebbe verosimilmente
+portare a un rallentamento dell'attività di ricerca, un'attività di ricerca più curata
+e più distante da dei principi di catena di montaggio e di produzione continua,
+auspicio che però è comune in tante riflessioni sul futuro dell'università. Credo anche però che
+questa roba sia meno vera nella pratica di quanto possa sembrare la teoria, nel senso che ci sono
+domande di ricerca che nella prima forma o in variazioni che richiedono sì di rivedere ma non
+di rimettere totalmente in discussione le ipotesi di lavoro, possono coprire l'intera carriera
+accademica di un ricercatore o di un gruppo di ricerca, quindi con la sensibilità di periodicamente
+verificare che il lavoro di ricerca non si sia distanziato troppo dalle proprie ipotesi di lavoro.
+È anche facile che per alcuni ricercatori il processo di analisi, ovvero di definizione dell'oggetto
+di ricerca, delle scale, dei livelli su di essi interessanti e quindi delle relative
+approssimazioni e di ipotesi di lavoro conseguenti sia un lavoro che factualmente possa essere fatto
+un numero limitato di volte nella vita accademica di un ricercatore a meno di ricercatori che non
+come realtà poi è quello che possiamo per lo più osservare negli sviluppi dell'economia
+della complessità degli ultimi anni segnare sul terzo archetipo che si chiama economia della
+complessità. Ricercatori che cambino frequentemente metodi, temi, argomenti di ricerca e quindi
+ripetendo questo processo di definizione della cornice di ricerca più volte nel corso della
+propria carriera. Sicuramente più reali sono i limiti che l'aziendalizzazione dell'accademia
+C'è da dire che essi non sono limiti intrinsechi alla produzione di conoscenza, ma norme sociali
+e in ultima analisi scelte politiche della comunità in senso ampio in cui ricercatori vivono.
+In questo senso abbiamo già evidenziato che due punti, che è un approccio di complessità metà
+teorica solleva, che sono difficilmente conciliabili con le norme sociali e valutative in atto,
+sono appunto la velocità di produzione della ricerca, per cui un approccio riduzionista
+da aggiungere di variazioni sul tema e in grado di garantire una produzione maggiore di prodotti
+della ricerca rispetto a un lavoro analitico a sottrarre come quello che sto proponendo.
+E dall'altra parte l'indubbio vantaggio a livello di valutazione del proprio operato che hanno i
+ricercatori che partecipano in comunità di ricerca grosse, con una forte identità e che
+producono lavori che possano essere riconosciuti simili da altri ricercatori.
+E questa necessità di accumulare citazioni, quindi riconoscimento, all'interno di una
+specifica nicchia, quanto più grande meglio è della disciplina, che fa sì che tutta una serie
+di ipotesi di lavoro siano necessarie da assumere per garantirsi un proseguimento di carriera,
+e non possono essere di fatto scartate nemmeno se in qualche modo ostacolano lo studio del
+fenomeno in oggetto, perché porterebbero il prodotto della ricerca e il lavoro del ricercatore
+a distanziarsi da una comunità e quindi a distanziarsi da coloro che possono riconoscere
+questo articolo non solo come valido e interessante, ma come rilevante per il loro lavoro e quindi
+citarlo e quindi di fatto ritribuire il lavoro dell'autore garantendo una rendita che poi si
+realizza generalmente nell'ottenimento di promozioni, di maggiori fondi o della possibilità
+di allargare il proprio gruppo di ricerca. E questa intrinse camofilia nell'accademia contemporanea
+è probabilmente ciò che ci impedisce di saltare gli steccati disciplinari a livello metodologico
+o di conoscenza accumulata e cui attingere, di muoverci negli interstizi tra differenti tradizioni
+di studio dell'economia e quindi superando una visione di pluralismo in cui ogni tradizione
+deve essere opposta e mirare a superare l'altra invece che contestualizzata in ciò che si è
+dimostrata capace di studiare. E alla fine è un comportamento assimilante per cui piuttosto
+che mettere in discussione le pratiche di ricerca per provare a studiare in maniera più appropriata
+un fenomeno nuovo si preferisce studiare un po' peggio ma con la garanzia di essere riconosciuti
+parte di una comunità. In altre parole non credo ci siano limiti epistemici o di effettivo svolgimento
+del lavoro di ricerca all'assumere un approccio complesso in senso metateorico in economia o in qualunque
+altra disciplina. Credo però che le attuali condizioni sociali e di riproduzione dell'accademia
+che vengano in maniera essenziale la possibilità di utilizzare tale approccio che non fa altro che
+mettere a fuoco da una parte l'esplicitazione di dei processi impliciti che vengono già fatti
+nel momento in cui si assumono certe ipotesi di lavoro piuttosto che altre spesso senza giustificarle
+rispetto al preciso oggetto di studi. E dall'altra un'intuizione che mi sembra banale
+che quella di dover piegare il proprio approccio e le proprie premesse all'oggetto di studi
+e non l'oggetto di studi a un approccio a una premessa decisa a priori.
+
+	
+\end{document}
