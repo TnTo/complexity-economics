@@ -12,6 +12,8 @@
 \linenumbers
 \usepackage[hidelinks]{hyperref}
 
+\usepackage{textcomp}
+
 \addbibresource{complexity.bib}
 
 %opening
@@ -28,116 +30,80 @@
 	
 	\begin{abstract}
 		... \\
-		\textbf{Keywords:} \\
-		\textbf{JEL Codes:}
+		\textbf{Keywords:} Complessità, Meta-Teoria, Riduzionismo\\
+		\textbf{JEL Codes: B41, B59, A14}
 	\end{abstract}
 	
 \section{Sulla Complessità}
-\subsection{Una brevissima storia della complessità}
-Trattare il tema della complessità è generalmente qualcosa di molto difficile da fare per la natura sfuggente del termine. Innanzitutto, complessità è ormai diventata una buzzword spesso priva di significato proprio. Inoltre non esiste una definizione condivisa di cosa sia la complessità a livello scientifico [@horgan2015, citato in @holt2011, elenca 45 differenti idee da cui partire per cercare una definizione di complessità], rendendo difficile trattare con precisione l'argomento.
+Trattare il tema della complessità è generalmente qualcosa di molto difficile da fare per la natura ambigua e sfuggente del termine.
+Innanzitutto, complessità è ormai diventata una \textit{buzzword} spesso priva di significato proprio.
+Inoltre non esiste una definizione condivisa di cosa sia la complessità a livello scientifico\footnote{\textcite{horgan2015}, citato in \textcite{holt2011}, elenca 45 differenti idee da cui partire per cercare una definizione di complessità.} rendendo difficile trattare con precisione l'argomento.
 
 La causa di ciò credo divenga evidente una volta che si guarda il problema della definizione di complessità da una prospettiva storica. 
 
 Una lista di ciò che oggi è senza dubbio oggetto di studio da parte della teoria della complessità non può non contenere, tra le altre cose, i sistemi dinamici (in particolare il caos deterministico e la teoria delle biforcazioni) e la meccanica statistica. Per entrambe le discipline di studio è possibile ricondurne la nascita (o almeno un momento fondativo) agli anni 1870, quando Poincaré pubblicò i primi lavori sulle ricorrenze e Boltzmann presentò i primi risultati su cui fondare la meccanica statistica.
 
-D'altra parte, il termine complessità entra nel lessico scientifico con l'articolo di @anderson1972 del 1972 "More is Different", che apre mettendo in discussione il paradigma riduzionista su cui si basa la scienza moderna, riconoscendo che sebbene si possa creare una gerarchia di scienze secondo la visione riduzionista (ad esempio fisica -> chimica -> biologia -> fisiologia -> psicologia -> sociologia) non è sostenibile affermare che "X è semplicemente Y applicata".
+D'altra parte, il termine complessità entra nel lessico scientifico con l'articolo di \citeauthor{anderson1972} del \citeyear{anderson1972} \citetitle{anderson1972}, che si apre mettendo in discussione il paradigma riduzionista su cui si basa la scienza moderna, riconoscendo che sebbene si possa creare una gerarchia di scienze secondo la visione riduzionista (ad esempio fisica \textrightarrow{} chimica \textrightarrow{} biologia \textrightarrow{} fisiologia \textrightarrow{} psicologia \textrightarrow{} sociologia) non è sostenibile affermare che "X è semplicemente Y applicata".
+Ovvero che non è possibile riformulare sulla base delle leggi della disciplina più ridotta tutte le leggi della disciplina più complessa (cioè non possiamo esprimere, ad esempio, tutta la conoscenza psicologica facendo riferimento solo ai fenomeni fiosiologici sottostanti).
 
-Nel momento in cui Anderson pubblica il suo articolo, però, sono già stati sviluppati numerosi metodi matematici per gestire i "sistemi complessi" e si è già diffuso un \textit{senso comune} su quali problemi siano oggetto di studio da parte della teoria della complessità (come citato prima i sistemi dinamici e la termodinamica, a cui possiamo aggiungere, senza pretesa di esaustività, la teoria dell'informazione, i processi stocastici, i modelli computazionali ad agenti, la teoria dei giochi, la teoria dei grafi o delle reti). In altre parole, nel momento in cui compare una definizione e un tentativo di fondare metodologicamente il campo di ricerca, lo sviluppo delle tecniche matematiche per indagarlo è già avanzato e si è sviluppato in una prospettiva riduzionista.
+Nel momento in cui Anderson pubblica il suo articolo, però, sono già stati sviluppati numerosi metodi matematici per gestire i "sistemi complessi" e si è già diffuso un \textit{senso comune} su quali problemi siano oggetto di studio da parte della teoria della complessità (come citato prima i sistemi dinamici e la termodinamica, a cui possiamo aggiungere, senza pretesa di esaustività, la teoria dell'informazione, i processi stocastici, i modelli computazionali ad agenti, la teoria dei giochi, la teoria dei grafi o delle reti).
+In altre parole, nel momento in cui compare una definizione e un tentativo di fondare metodologicamente il campo di ricerca, lo sviluppo delle tecniche matematiche per indagarlo è già avanzato e si è sviluppato in una prospettiva indipendente e riduzionista.
 
-Compare qui una tensione che è probabilmente il punto focale dell'articolo: seguendo Anderson la complessità non può che essere riduzionista ma i metodi matematici della teoria della complessità nascono in una prospettiva riduzionista.
+Compare qui una tensione che è probabilmente il punto focale dell'articolo: seguendo Anderson la complessità non può che essere anti-riduzionista ma i metodi matematici della teoria della complessità nascono e si sviluppano in una prospettiva riduzionista.
 
-Torniamo alla meccanica statistica come archetipo. Il problema che essa risolve è di ricondurre un fenomeno macroscopico (le leggi della termodinamica e l'irreversibilità dei processi fisici) alle leggi microscopiche note (la dinamica molecolare) come prescritto dal paradigma riduzionista.  Ciò elimina la necessità di avere due differenti teorie per il microscopico e il macroscopico, riconducendo i fenomeni macroscopici a manifestazioni di leggi microscopiche.
+Torniamo alla meccanica statistica come esempio archetipico. Il problema che essa risolve è di ricondurre un fenomeno macroscopico (le leggi della termodinamica e l'irreversibilità dei processi fisici) alle leggi microscopiche note (la dinamica molecolare) come prescritto dal paradigma riduzionista.  Ciò elimina la necessità di avere due differenti teorie per il microscopico e il macroscopico, riconducendo i fenomeni macroscopici a manifestazioni di leggi microscopiche.
 
-Ciò in teoria. Nella pratica le leggi macroscopiche rimangono correntemente in uso per ragioni di semplicità e adeguatezza, perché descrivono meglio la realtà macroscopica e restituiscono rappresentazioni più semplici da usare e che sono comunque sufficientemente accurate. Inoltre, la meccanica statistica ha creato una nuova descrizione mesoscopica dove le leggi microscopiche e macroscopiche si toccano descrivendo fenomeni che possono essere spiegati però solo da un terzo gruppo di leggi (mesoscopiche).
+Questo in teoria. Nella pratica, però, le leggi macroscopiche rimangono correntemente in uso per ragioni di semplicità e adeguatezza, perché descrivono meglio la realtà macroscopica e restituiscono rappresentazioni più semplici da usare e che sono comunque sufficientemente accurate.
+Inoltre, la meccanica statistica ha creato una nuova descrizione mesoscopica dove le leggi microscopiche e macroscopiche si mischiano descrivendo fenomeni che non possono essere spiegati né solo dalle une né solo dalle altre, richiedendo di fatto un apparato teorico nuovo di leggi mesoscopiche.
 
-In questo senso possiamo tornare all'intuizione di Anderson: nel momento in cui si prova a ridurre il macroscopico al microscopico si perde in accuratezza nella descrizione del macroscopico (o almeno di praticità) mentre si esplora un'area grigia che non appartiene né al macroscopico né al microscopico e, al contempo, appartiene ad entrambi.
-
-\subsection{Definizioni}
-
-Si può, come esperimento mentale, pensare di riuscire a creare una descrizione del sapere così comprensiva, al contempo analitica e sintetica, da rendere ogni altra obsoleta, ma non si discosterebbe molto da una mappa 1:1, sulla cui inutilità hanno scritto, meglio di me, Eco e Borges.
-
-Dobbiamo allora riconoscere che ogni descrizione del reale non può che essere parziale, centrata su qualche elemento di interesse mentre ne tralascia, inevitabilmente, altri.
-
-La complessità è questo: riconoscere che il mondo è composto da troppe cose, legate da troppi nessi e relazioni, per poterle isolare una alla volta o studiarle tutte insieme con precisioni. Invece, si può ragionare su quali siano, di volta in volta, le cose importanti da mettere a fuoco, l'ingrandimento necessario per vedere ciò che mi interessa. Sapendo però cosa non sto vedendo, ed essendo consapevoli del perché si è deciso di lasciare alcune cose fuori dal campo visivo.
-
-Una scala è, alla fine, un aspetto del sistema, una sua area semantica e concettuale, che possa essere analizzato da punti di vista diversi e con differenti livelli di dettaglio.
-
+In questo senso possiamo recuperare l'intuizione di Anderson: nel momento in cui si prova a ridurre il macroscopico al microscopico si perde in accuratezza nella descrizione del macroscopico (o almeno di praticità) mentre si esplora un'area grigia che non appartiene né al macroscopico né al microscopico e, al contempo, appartiene ad entrambi.
+Si ottiene quindi una nuova formulazione che è nella pratica inutilizzabile e inadeguata a essere usata come teoria scientifica per uno dei due livelli e, potenzialmente, si mette in luce un livello intermedio terzo che ha bisogno di un proprio e didstinto apparato di leggi.
 
 Per procedere oltre nella discussione è probabilmente necessario quantomeno avvicinarsi a una definizione dell'oggetto di studio: la complessità.
 
-I concetti che più spesso vengono associati a quest'idea sono la relazione tra le parti e il tutto, la differenza tra comportamenti individuali e collettivi, le proprietà emergenti, le relazioni tra le parti, la non-linearità [La non-linearità sembra un po' la carta spaiata nell'elenco, ma la sua relazione con gli altri elementi è semplice da mostrare. Pensiamo a un insieme di elementi xi e pensiamo di aggregarli sommandoli come X=Sxi. Allora il cambiamento dell'aggregato al cambiamento di uno degli elementi dell'insieme è DX=Dxi, identificando i cambiamenti macro e microscopici ed eliminando la necessità di due rappresentazioni diverse. Un caso forse più comune, ma analogo, in economia è quello della log-linearità quando la funzione di aggregazione è il prodotto, ovvero X = log(Pxi) e DX=Dlog(xi).].
+I concetti che più spesso vengono associati a quest'idea sono la relazione tra le parti e il tutto, la differenza tra comportamenti individuali e collettivi, le proprietà emergenti, le relazioni tra le parti, la non-linearità\footnote{La non-linearità potrebbe sembrare la carta spaiata nell'elenco, ma la sua relazione con le altre idee è semplice da mostrare. Ipotizziamo un insieme di elementi $\{x_i\}$ e supponiamo di aggregarli sommandoli come $X=\sum_i x_i$. La relazione tra il cambiamento di uno degli elementi dell'insieme e il cambiamento dell'aggregato è $\Delta X=\Delta x_i$, identificando tra loro i cambiamenti macro e microscopici ed eliminando la necessità di due rappresentazioni diverse della dinamica. Un caso forse più comune e analogo in economia è quello della log-linearità quando la funzione di aggregazione è il prodotto, ovvero $X = \log(\prod_i x_i)$ e $\Delta X=\Delta\log(x_i)$.}. Per questo motivo è comune parlare di \textit{sistemi complessi} quasi come sinonimo di complessità, perché la parola sistema sottende non molto più che un insime di parti in relazione tra loro.
 
-Ciò giustifica l'uso intercambiabile di \textit{complessità} e \textit{sistema complesso} (ad esempio fisica della complessità o fisica dei sistemi complessi): la differenza tra un sistema e un più generico ente risiede nell'assumere la divisibilità del primo in costituenti in relazione tra loro. 
+La definizione di complessità che propongo è la seguente:
+\begin{quote}
+	Un sistema è complesso se deve essere descritto differentemente su diversi livelli di una o più scale.
+\end{quote}
 
-Ciò giustifica l'uso intercambiable di complessità e sistema complesso, ad esempio fisiche complessità
-o fisiche sistemi complessi.
-Differenza tra un sistema più generico e ente risade nella sua divisità del primo
-incostituente in relazione tra loro, caratteristica necessaria per molte delle espressioni che
-abbiamo elencato prima.
-La definizione che provo a dare di sistema complesso è quindi che un sistema è complesso
-quando deve essere descritto differentemente a diverse scale, su diversi livelli di diverse
-scale.
-Nel fare ciò sto introducendo il concetto di scala e per spiegarlo un po' meglio ricorrerò
-a una metafora.
-Pensiamo a un vetrino sul microscopio, un singolo campione, questo campione però appare
-in maniera molto diversa a seconda del piano focale che usiamo o del livello di zoom che
-usiamo.
-In qualche modo noi stiamo introducendo due dimensioni lungo le quali il nostro modo di
-osservare l'oggetto varia.
-La percezione che abbiamo dell'oggetto e quindi le caratteristiche e le proprietà che possiamo
-ricavarne sono diverse a ciascun livello di queste scale e a ciascuna combinazione dei
-livelli su queste scale.
-Ora, esempi più tipici di cosa può essere una scala sono la scala geografica, quindi
-per esempio se pensiamo al sistema economico descrivere differentemente ciò che succede
-a livello di una città, di un distretto industriale, di una nazione, di un continente dell'intero
-mercato globale, oppure una scala temporale, cioè distinguere tra fenomeni di breve periodo,
-per esempio i modelli a capitale fisso, e modelli di lungo periodo, con tutto il problema
-di come descriviamo il lungo periodo.
-Nota, quello del lungo periodo è un esempio particolarmente interessante, perché ci permette
-di evidenziare come differenti modi di guardare lo stesso punto sulla scala ci portano a osservare
-proprietà diverse.
-In economia abbiamo storicamente differenti modi di guardare il lungo periodo, fra di
-essi ci sono l'approccio neoclassico che assume l'esistenza di un equilibrio di lungo periodo
-e un sistema che rilassi verso questo equilibrio, l'approccio poschinesiano che assume una moltitudine
-di stati stazionari, quindi possiamo dire di equilibri instabili nel lungo periodo, con
-la possibilità di passare da uno all'altro, l'approccio marxiano che descrive qualitativamente
-alcune caratteristiche della dinamica verso il lungo periodo, senza descrivere il punto
-di arrivo, o meglio una stabilità, un qualche tipo di stabilità studiabile nel lungo periodo,
-quindi se vogliamo un discorso più sulle derivate che sulle funzioni, è l'approccio
-caotico, ovvero che assumendo che l'economia sia un sistema caotico, divenga impossibile
-studiare il comportamento di lungo periodo, perché qualunque rappresentazione accumula
-degli errori troppo grandi superato il breve periodo.
-A fianco a queste ci sono delle scale meno canoniche, per esempio una scala di aggregazione
-in cui noi possiamo pensare di studiare come cambia il comportamento di un individuo, di
-individui, di una società e così via, e quindi di come inserendo i concetti di molteplicità
-e di relazione, queste vanno a influenzare il comportamento del singolo e quindi il fatto
-che alcune caratteristiche del comportamento del gruppo non possono essere spiegate esclusivamente
-in funzione del comportamento del singolo.
-In altri casi quello che chiamo scala è meno evidentemente una scala.
-Pensiamo per esempio alla questione di genere.
-Uno stesso fenomeno può essere studiato ignorando il genere dei soggetti coinvolti, può essere
-studiato approssimando i soggetti biologici con il loro sesso biologico in una prospettiva
-binaria, può essere studiato mantenendo la prospettiva binaria ma guardando al genere
-dei soggetti sotto studio o può essere studiato in una prospettiva queer, quindi includendo
-una molteplicità e una pluralità di approcci.
-Quindi la definizione che propongo va a identificare come sistema complesso qualunque sistema che
-cambi le proprie caratteristiche a seconda del punto di osservazione, qualunque sistema
-che non si mantenga uguale a se stesso e coerente sotto ogni punto di vista.
-E' probabile che nella realtà qualunque sistema sia allora complesso secondo questa
-definizione e c'è evidenza l'importanza delle approssimazioni che facciamo nello studiare
-un sistema o un fenomeno.
-Riformulando la definizione possiamo dire che un sistema, una certa approssimazione
-di un sistema non è complessa se quell'approssimazione è valida indipendentemente dal livello in
-cui osserviamo il sistema.
-Dall'altra parte
-questa definizione riesce a riassumere, credo, tutte le differenti intuizioni che vengono
-state date, nel senso che indipendentemente da quale sia la scala lungo la quale avviene
-un cambiamento del sistema, la definizione è sufficientemente astratta per accoglierla,
-che sia il comportamento di breve e di lungo periodo di un sistema dinamico, che sia la
-differenza tra comportamento individuale e comportamento emergente di un'aggregazione
-di elementi, che sia anche la richiesta di non linearità, vedi la nota precedente in
-cui è la non linearità che introduce una differenza fra i cambiamenti
-osservati a due livelli, cioè in qualche modo, no va bene.
+Per assumere di senso, questa definizione, richiede di definire cosa siano una scala e i suoi livelli. Ma prima di fare ciò spenderò due parole sull'idea di descrizione.
+
+Ogni teoria scientifica mira alla comprensione del reale attraverso una sua rappresentazione semplificata che permetta di metterne a fuoco particolari caratteristiche d'interesse. Queste rappresentazioni sono generalmente prodotte nella forma di leggi o modelli.
+Al contempo però, ciascuna di queste rappresentazioni esprime solo una particolare descrizione del reale che si concentra su alcuni dettagli tralasciandone altri\footnote{Si potrebbe, come esperimento mentale, pensare di riuscire a creare una descrizione del reale così comprensiva e precisa, al contempo analitica e sintetica, da rendere ogni altra obsoleta, ma non si discosterebbe molto da una mappa 1:1 del mondo, sulla cui inutilità e impraticità hanno scritto, meglio di me, Eco e Borges.}.
+
+Questa osservazione ci consegna una prima intuzione su cosa sia la complessità: riconoscere che il mondo è composto da troppi enti, legati tra loro da troppi nessi e relazioni, per poterne isolare uno alla volta o studiarli tutti insieme con precisione. Invece, è necessario riconoscere, di volta in volta, quali siano i dettagli importanti massi a fuoco, l'ingrandimento necessario per vedere ciò che interessa, consapevoli però di cosa e perché sia rimasto fuori dal campo visivo.
+
+Seguendo questa metafora provo a spiegare cosa intendo per scala e livelli.
+
+Pensiamo a un vetrino per il microscopio con un singolo campione. Questo campione appare
+in maniera molto diversa a seconda dell'ingrandimento o del piano focale scelti per l'osservazione.
+Queste due variabili, due dimensioni lungo cui muoversi, cambiano il nostro modo di osservare il campione e la descrizone che ne possiamo dare.
+La percezione che abbiamo del campione e quindi le caratteristiche e le proprietà che possiamo
+descrivere, variano al variare delle due variabili (l'ingrandimento e il piano focale) di osservarzione.
+
+Abbiamo cioè introdotto due dimensioni, che chiamiamo scale, che presentano differenti modi, i livelli, di osservare, o descrivere, uno stesso ente.
+
+Esempi tipici di scale sono la scala geografica (che in riferimento al sistema economico ha come livelli, ad esempio, una città, un distretto industriale, una nazione, un continente, l'intero
+mercato globale) oppure la scala temporale (tra i cui livelli possiamo elencare il breve periodo, usato ad esempio per i modelli a capitale fisso, e il lungo periodo\footnote{Il lungo periodo è un esempio particolarmente interessante, perché permette di evidenziare come differenti modi di guardare allo stesso livello di una scala possano portare a descrivere proprietà diverse del sistema, implicando quindi l'esistenza di almeno un'altra scala non esplicitamente riconosciuta che genera la diversità dei punti di vista.
+Storicamente fra i differenti modi di descrivere il lungo periodo in economia ci sono: l'approccio neoclassico, che descrive l'esistenza di un unico equilibrio di lungo periodo e il comportamento del sistema economico che rilassa verso di esso; l'approccio post-keynesiano, che descrive la possibilità di stati stazionari multipli, simili nell'idea a equilibri instabili, fra cui il sistema economico può muoversi; l'approccio marxiano, che descrive qualitativamente alcune caratteristiche della dinamica del sistema economico nel lungo periodo, senza descrivere però il punto di arrivo di essa con precisione sufficiente ad essere studiato; l'approccio che fa propria la teoria del caos determinisco, che descrivendo l'economia come un sistema caotico conclude l'impossibilità di studiarne il comportamento di lungo periodo, per il progressivo accumularsi di errori inevitabili in qualunque rappresentazione.}).
+
+Un'altra scala, forse meno intuitive, che trova enorme spazio nella descrizione dei fenomeni economici è la scala di aggregazione, tra i cui livelli troviamo l'individuo (micro), i gruppi (meso) e l'interà società (macro), che ci permette di descrivere come i concetti di molteplicità e relazione influenzano la descrizione del sistema economico, e quindi di descrivere quei comportamenti dell'individuo che trovano spiegazione solo nella sua relazione con altri. 
+
+Altre dimensioni lungo le quali varia la descrizione, e che quindi qui chiamo scale, sono meno intuitivamente delle scale.
+Ad esempio possiamo interpretare la prospettiva di genere come una scala.
+Uno stesso fenomeno può essere studiato ignorando il genere dei soggetti coinvolti, utilizzando una prospettiva binaria basandosi sul sesso biologico dei soggetti coinvolti, mantenendo una prospettiva comunque binaria ma basata sul genere e sulla socializzazione dei soggetti coinvolti, o adottando una prospettiva queer includendo una molteplicità di categorie di classificazione basate sull'autorappresentazione dei soggetti coinvolti.
+Ognuno di questi livelli restituisce all'osservatore differenti caratteristiche del sistema studiato e nessuno di questi è a priori quello corretto.
+Uno progetto di ricerca in medicina sulla salute riproduttiva probabilmente utilizzerà una prospettiva basata sul sesso biologico che è, almeno in prima approssimazione, un fattore determinante, senza introdurre però una ricchezza maggiore di dettagli che risulterebbero solamente rumore all'atto dell'analisi statistica dei risultati\footnote{Almeno in prima approssimazione. Ottenuti i risultati dello studio iniziale potrebbe risultare estremamente utile cambiare livello di osservazione sulla scala per poter descrivere, ad esempio, gli stessi fenomeni nella popolazione sottoposta a terapia ormonale sostitutiva a seguito di una diagnosi di incongruenza di genere.}.
+Allo stesso modo, un'etnografia sui movimenti queer difficilmente potrà rinunciare al livello di dettaglio ed eterogenità che risiede nell'autorappresentazione dei singoli.
+
+Riassumendo, una scala è un aspetto del sistema, una sua area semantica o concettuale, che possa essere analizzato da punti di vista diversi o con differenti livelli di dettaglio.
+E un sistema complesso è qualunque sistema che cambi le proprie caratteristiche, o meglio la descrizione che se ne si può fare, a seconda del punto di osservazione. In altre parole, un sistema che non si mantenga sempre uguale a se stesso e coerente sotto ogni punto di vista.
+
+È probabile che seguendo questa definizione la realtà sia complessa e sia complesso anche quasi ogni suo sott'insieme. Ma non vedo problematicità in ciò.
+
+Quello che fa, invece, questa definizione, oltre a includere -credo- tutte le differenti intuizioni sulla natura della complessità grazie all'astrattezza dell'idea di scala, è porre indirettamente l'attenzione sulle approssimazione che esplicitamento o (più spesso) implicitamente vengono fatte in ogni ricerca scientifica e in ogni descrizione del reale.
 
 \subsection{Complessità come meta-teoria}
 Data la definizione possiamo chiederci su quali siano le conseguenze di questa definizione
@@ -660,6 +626,8 @@ nel momento in cui si assumono certe ipotesi di lavoro piuttosto che altre spess
 rispetto al preciso oggetto di studi. E dall'altra un'intuizione che mi sembra banale
 che quella di dover piegare il proprio approccio e le proprie premesse all'oggetto di studi
 e non l'oggetto di studi a un approccio a una premessa decisa a priori.
+
+\printbibliography
 
 	
 \end{document}
