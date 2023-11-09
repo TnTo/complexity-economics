@@ -1,4 +1,4 @@
-% !TeX spellcheck = it
+% !TeX spellcheck = it_IT
 \documentclass[a4paper, headings=standardclasses]{scrartcl}
 
 \usepackage[margin=2.5cm]{geometry}
@@ -56,12 +56,12 @@ Torniamo alla meccanica statistica come esempio archetipico. Il problema che ess
 Questo in teoria. Nella pratica, però, le leggi macroscopiche rimangono correntemente in uso per ragioni di semplicità e adeguatezza, perché descrivono meglio la realtà macroscopica e restituiscono rappresentazioni più semplici da usare e che sono comunque sufficientemente accurate.
 Inoltre, la meccanica statistica ha creato una nuova descrizione mesoscopica dove le leggi microscopiche e macroscopiche si mischiano descrivendo fenomeni che non possono essere spiegati né solo dalle une né solo dalle altre, richiedendo di fatto un apparato teorico nuovo di leggi mesoscopiche.
 
-In questo senso possiamo recuperare l'intuizione di Anderson: nel momento in cui si prova a ridurre il macroscopico al microscopico si perde in accuratezza nella descrizione del macroscopico (o almeno di praticità) mentre si esplora un'area grigia che non appartiene né al macroscopico né al microscopico e, al contempo, appartiene ad entrambi.
-Si ottiene quindi una nuova formulazione che è nella pratica inutilizzabile e inadeguata a essere usata come teoria scientifica per uno dei due livelli e, potenzialmente, si mette in luce un livello intermedio terzo che ha bisogno di un proprio e didstinto apparato di leggi.
+In questo senso possiamo recuperare l'intuizione di Anderson: nel momento in cui si prova a ridurre il macroscopico al microscopico si perde in accuratezza nella descrizione del macroscopico (o almeno di praticità) mentre si esplora un'area grigia che non appartiene né al macroscopico né al microscopico e, al contempo, appartiene a entrambi.
+Si ottiene quindi una nuova formulazione che è nella pratica inutilizzabile e inadeguata a essere usata come teoria scientifica per uno dei due livelli e, potenzialmente, si mette in luce un livello intermedio terzo che ha bisogno di un proprio e distinto apparato di leggi.
 
 Per procedere oltre nella discussione è probabilmente necessario quantomeno avvicinarsi a una definizione dell'oggetto di studio: la complessità.
 
-I concetti che più spesso vengono associati a quest'idea sono la relazione tra le parti e il tutto, la differenza tra comportamenti individuali e collettivi, le proprietà emergenti, le relazioni tra le parti, la non-linearità\footnote{La non-linearità potrebbe sembrare la carta spaiata nell'elenco, ma la sua relazione con le altre idee è semplice da mostrare. Ipotizziamo un insieme di elementi $\{x_i\}$ e supponiamo di aggregarli sommandoli come $X=\sum_i x_i$. La relazione tra il cambiamento di uno degli elementi dell'insieme e il cambiamento dell'aggregato è $\Delta X=\Delta x_i$, identificando tra loro i cambiamenti macro e microscopici ed eliminando la necessità di due rappresentazioni diverse della dinamica. Un caso forse più comune e analogo in economia è quello della log-linearità quando la funzione di aggregazione è il prodotto, ovvero $X = \log(\prod_i x_i)$ e $\Delta X=\Delta\log(x_i)$.}. Per questo motivo è comune parlare di \textit{sistemi complessi} quasi come sinonimo di complessità, perché la parola sistema sottende non molto più che un insime di parti in relazione tra loro.
+I concetti che più spesso vengono associati a quest'idea sono la relazione tra le parti e il tutto, la differenza tra comportamenti individuali e collettivi, le proprietà emergenti, le relazioni tra le parti, la non-linearità\footnote{La non-linearità potrebbe sembrare la carta spaiata nell'elenco, ma la sua relazione con le altre idee è semplice da mostrare. Ipotizziamo un insieme di elementi $\{x_i\}$ e supponiamo di aggregarli sommandoli come $X=\sum_i x_i$. La relazione tra il cambiamento di uno degli elementi dell'insieme e il cambiamento dell'aggregato è $\Delta X=\Delta x_i$, identificando tra loro i cambiamenti macro e microscopici ed eliminando la necessità di due rappresentazioni diverse della dinamica. Un caso forse più comune e analogo in economia è quello della log-linearità quando la funzione di aggregazione è il prodotto, ovvero $X = \log(\prod_i x_i)$ e $\Delta X=\Delta\log(x_i)$.}. Per questo motivo è comune parlare di \textit{sistemi complessi} quasi come sinonimo di complessità, perché la parola sistema sottende non molto più che un insieme di parti in relazione tra loro.
 
 La definizione di complessità che propongo è la seguente:
 \begin{quote}
@@ -73,140 +73,87 @@ Per assumere di senso, questa definizione, richiede di definire cosa siano una s
 Ogni teoria scientifica mira alla comprensione del reale attraverso una sua rappresentazione semplificata che permetta di metterne a fuoco particolari caratteristiche d'interesse. Queste rappresentazioni sono generalmente prodotte nella forma di leggi o modelli.
 Al contempo però, ciascuna di queste rappresentazioni esprime solo una particolare descrizione del reale che si concentra su alcuni dettagli tralasciandone altri\footnote{Si potrebbe, come esperimento mentale, pensare di riuscire a creare una descrizione del reale così comprensiva e precisa, al contempo analitica e sintetica, da rendere ogni altra obsoleta, ma non si discosterebbe molto da una mappa 1:1 del mondo, sulla cui inutilità e impraticità hanno scritto, meglio di me, Eco e Borges.}.
 
-Questa osservazione ci consegna una prima intuzione su cosa sia la complessità: riconoscere che il mondo è composto da troppi enti, legati tra loro da troppi nessi e relazioni, per poterne isolare uno alla volta o studiarli tutti insieme con precisione. Invece, è necessario riconoscere, di volta in volta, quali siano i dettagli importanti massi a fuoco, l'ingrandimento necessario per vedere ciò che interessa, consapevoli però di cosa e perché sia rimasto fuori dal campo visivo.
+Questa osservazione ci consegna una prima intuizione su cosa sia la complessità: riconoscere che il mondo è composto da troppi enti, legati tra loro da troppi nessi e relazioni, per poterne isolare uno alla volta o studiarli tutti insieme con precisione. Invece, è necessario riconoscere, di volta in volta, quali siano i dettagli importanti massi a fuoco, l'ingrandimento necessario per vedere ciò che interessa, consapevoli però di cosa e perché sia rimasto fuori dal campo visivo.
 
 Seguendo questa metafora provo a spiegare cosa intendo per scala e livelli.
 
 Pensiamo a un vetrino per il microscopio con un singolo campione. Questo campione appare
 in maniera molto diversa a seconda dell'ingrandimento o del piano focale scelti per l'osservazione.
-Queste due variabili, due dimensioni lungo cui muoversi, cambiano il nostro modo di osservare il campione e la descrizone che ne possiamo dare.
+Queste due variabili, due dimensioni lungo cui muoversi, cambiano il nostro modo di osservare il campione e la descrizione che ne possiamo dare.
 La percezione che abbiamo del campione e quindi le caratteristiche e le proprietà che possiamo
-descrivere, variano al variare delle due variabili (l'ingrandimento e il piano focale) di osservarzione.
+descrivere, variano al variare delle due variabili (l'ingrandimento e il piano focale) di osservazione.
 
 Abbiamo cioè introdotto due dimensioni, che chiamiamo scale, che presentano differenti modi, i livelli, di osservare, o descrivere, uno stesso ente.
 
 Esempi tipici di scale sono la scala geografica (che in riferimento al sistema economico ha come livelli, ad esempio, una città, un distretto industriale, una nazione, un continente, l'intero
-mercato globale) oppure la scala temporale (tra i cui livelli possiamo elencare il breve periodo, usato ad esempio per i modelli a capitale fisso, e il lungo periodo\footnote{Il lungo periodo è un esempio particolarmente interessante, perché permette di evidenziare come differenti modi di guardare allo stesso livello di una scala possano portare a descrivere proprietà diverse del sistema, implicando quindi l'esistenza di almeno un'altra scala non esplicitamente riconosciuta che genera la diversità dei punti di vista.
-Storicamente fra i differenti modi di descrivere il lungo periodo in economia ci sono: l'approccio neoclassico, che descrive l'esistenza di un unico equilibrio di lungo periodo e il comportamento del sistema economico che rilassa verso di esso; l'approccio post-keynesiano, che descrive la possibilità di stati stazionari multipli, simili nell'idea a equilibri instabili, fra cui il sistema economico può muoversi; l'approccio marxiano, che descrive qualitativamente alcune caratteristiche della dinamica del sistema economico nel lungo periodo, senza descrivere però il punto di arrivo di essa con precisione sufficiente ad essere studiato; l'approccio che fa propria la teoria del caos determinisco, che descrivendo l'economia come un sistema caotico conclude l'impossibilità di studiarne il comportamento di lungo periodo, per il progressivo accumularsi di errori inevitabili in qualunque rappresentazione.}).
+mercato globale) oppure la scala temporale (tra i cui livelli possiamo elencare il breve periodo, usato ad esempio per i modelli a capitale fisso, e il lungo periodo).
 
-Un'altra scala, forse meno intuitive, che trova enorme spazio nella descrizione dei fenomeni economici è la scala di aggregazione, tra i cui livelli troviamo l'individuo (micro), i gruppi (meso) e l'interà società (macro), che ci permette di descrivere come i concetti di molteplicità e relazione influenzano la descrizione del sistema economico, e quindi di descrivere quei comportamenti dell'individuo che trovano spiegazione solo nella sua relazione con altri. 
+Un'altra scala, forse meno intuitive, che trova enorme spazio nella descrizione dei fenomeni economici è la scala di aggregazione, tra i cui livelli troviamo l'individuo (micro), i gruppi (meso) e l'intera società (macro), che ci permette di descrivere come i concetti di molteplicità e relazione influenzano la descrizione del sistema economico, e quindi di descrivere quei comportamenti dell'individuo che trovano spiegazione solo nella sua relazione con altri. 
 
 Altre dimensioni lungo le quali varia la descrizione, e che quindi qui chiamo scale, sono meno intuitivamente delle scale.
 Ad esempio possiamo interpretare la prospettiva di genere come una scala.
 Uno stesso fenomeno può essere studiato ignorando il genere dei soggetti coinvolti, utilizzando una prospettiva binaria basandosi sul sesso biologico dei soggetti coinvolti, mantenendo una prospettiva comunque binaria ma basata sul genere e sulla socializzazione dei soggetti coinvolti, o adottando una prospettiva queer includendo una molteplicità di categorie di classificazione basate sull'autorappresentazione dei soggetti coinvolti.
 Ognuno di questi livelli restituisce all'osservatore differenti caratteristiche del sistema studiato e nessuno di questi è a priori quello corretto.
 Uno progetto di ricerca in medicina sulla salute riproduttiva probabilmente utilizzerà una prospettiva basata sul sesso biologico che è, almeno in prima approssimazione, un fattore determinante, senza introdurre però una ricchezza maggiore di dettagli che risulterebbero solamente rumore all'atto dell'analisi statistica dei risultati\footnote{Almeno in prima approssimazione. Ottenuti i risultati dello studio iniziale potrebbe risultare estremamente utile cambiare livello di osservazione sulla scala per poter descrivere, ad esempio, gli stessi fenomeni nella popolazione sottoposta a terapia ormonale sostitutiva a seguito di una diagnosi di incongruenza di genere.}.
-Allo stesso modo, un'etnografia sui movimenti queer difficilmente potrà rinunciare al livello di dettaglio ed eterogenità che risiede nell'autorappresentazione dei singoli.
+Allo stesso modo, un'etnografia sui movimenti queer difficilmente potrà rinunciare al livello di dettaglio ed eterogeneità che risiede nell'autorappresentazione dei singoli.
 
 Riassumendo, una scala è un aspetto del sistema, una sua area semantica o concettuale, che possa essere analizzato da punti di vista diversi o con differenti livelli di dettaglio.
 E un sistema complesso è qualunque sistema che cambi le proprie caratteristiche, o meglio la descrizione che se ne si può fare, a seconda del punto di osservazione. In altre parole, un sistema che non si mantenga sempre uguale a se stesso e coerente sotto ogni punto di vista.
 
-È probabile che seguendo questa definizione la realtà sia complessa e sia complesso anche quasi ogni suo sott'insieme. Ma non vedo problematicità in ciò.
+È probabile che seguendo questa definizione la realtà sia complessa e sia complesso anche quasi ogni suo sottoinsieme. Ma non vedo problematicità in ciò.
 
-Quello che fa, invece, questa definizione, oltre a includere -credo- tutte le differenti intuizioni sulla natura della complessità grazie all'astrattezza dell'idea di scala, è porre indirettamente l'attenzione sulle approssimazione che esplicitamento o (più spesso) implicitamente vengono fatte in ogni ricerca scientifica e in ogni descrizione del reale.
+Quello che fa, invece, questa definizione, oltre a includere --credo-- tutte le differenti intuizioni sulla natura della complessità grazie all'astrattezza e alla generalezza dell'idea di scala, è porre indirettamente l'attenzione sulle approssimazioni che esplicitamente o (più spesso) implicitamente vengono fatte in ogni ricerca scientifica e in ogni descrizione del reale.
 
-\subsection{Complessità come meta-teoria}
-Data la definizione possiamo chiederci su quali siano le conseguenze di questa definizione
-sul modo di fare scienza e quindi di sviluppare delle teorie scientifiche.
-Innanzitutto quello che osserviamo è che questa definizione complessità non ci dà
-nessun tipo di conoscenza specifica, ma si limita a prescrivere un modo di osservare le cose.
-In qualche modo dà un'intuizione non tanto di che tipo di conoscenza noi possiamo estrarre
-da un sistema complesso, ma di come dobbiamo affrontare un sistema complesso per estrarne
-della conoscenza. In questo senso credo si possa dire che la complessità può essere vista
-come una meta teoria, cioè una teoria su come fare le teorie quando intese in senso epistemico.
-Sebbene questa definizione valga anche laddove si mantenga un paradigma riduzionista in cui
-in qualche modo le differenti rappresentazioni sono legate da un formalismo matematico da un'altra
-forma di riduzione di un livello all'altro e quindi individuando su ogni scala un livello
-principe sulla base del quale possono essere spiegati tutti gli altri. Dall'altra parte è
-più intuitivo intendere questa definizione come riconoscere che cambiando il punto di vista,
-il punto di osservazione, le premesse, gli scopi dell'osservazione cambiano le caratteristiche
-dell'oggetto di studio che siamo in grado di evidenziare e quindi in qualche modo rifiuta
-l'idea di una teoria del tutto e di un punto di vista privilegiato. Sostituendo a questo invece
-una riflessione più attenta sulle premesse che ci permettano di circoscrivere quali intervalli
-delle diverse scale ci interessano e sulla base di quelle andare a sviluppare delle teorie che siano
-specifiche per ogni problema in questione. In altre parole, se rifiutiamo l'idea di un
-punto di vista privilegiato, quello che la complessità suggerisce è di partire dalla
-domanda di ricerca. Individuare quali sono?
-Le scale rilevanti per studiare il problema, quindi le scale lungo le quali il fenomeno muta
-al cambiare il punto di osservazione sulla scala e su ogni scala individuare qual è l'intervallo
-di livelli, l'area, l'intervallo sulla scala in cui il fenomeno che vogliamo studiare si
-presenta. E sulla base di queste premesse dell'analisi del fenomeno che vogliamo studiare, andare
-a costruire delle teorie specifiche. In questo senso possiamo secondo me parlare di complessità
-come meta-teoria, nel senso di come insieme di procedure operazionali necessarie per sviluppare
-una teoria scientifica, cioè una teoria su come costruire teorie.
-Del perché questo approccio è minoritario e in qualche modo è difficile intravederne
-un ruolo portante nel futuro dell'università, ne parlerò alla fine dell'articolo. Voglio però
-sottolineare una cosa prima. Un dibattito vivo in molte discipline tra cui l'economia è quella
-dell'esistenza, della coesistenza di teorie alternative. È il problema di scegliere una teoria rispetto
-all'altra. Particolarmente nelle scienze sociali e in economia più che in altre, questo è il problema del pluralismo,
-cioè dell'idea che nella disciplina devono coesistere una pluralità di teorie diverse che
-esprimono sensibilità diverse eccetera eccetera. Teorie tra loro alternative potenzialmente
-inconciliabili, ciascuna che cerca di essere la teoria definitiva. Possiamo vedere questa cosa
-anche in fisica, prendendo la disciplina scientifica, dove ci sono teorie contrapposte ancora oggi
-della fisica delle alte energie, ma più interessante per il nostro caso ci sono teorie diverse di
-cui alcune che i fisici considerano sperimentalmente sbagliati per la termodinamica, per l'elettromagnetismo,
-per la dinamica, nel senso che ci sono alcune teorie vecchie che vengono viste come casi specifici
-di una teoria più generale in un paradigma riduzionista, ma che attualmente vengono
-continuamente utilizzate nel quotidiano. Quello che voglio evidenziare è che il pluralismo nasce
-dall'idea di una teoria del tutto, nasce dall'idea che esista una sola teoria giusta che debba essere
-adatta a spiegare, tornando sul lessico di questo articolo, ogni livello di ogni scala e quindi che
-necessariamente queste teorie devono essere viste in competizione tra loro. Competizione che nelle scienze dure
-sempre, talvolta anche nelle scienze sociali, dovrebbe basarsi sulla capacità di replicare
-dati sperimentali, col problema dati empirici. Quello che invece stiamo delineando è un approccio epistemico
-in cui ogni teoria è necessariamente contestuale, cioè ogni teoria riconosce dei limiti al proprio dominio di applicazione,
-inteso come degli intervalli su alcune scale in cui è adatta e degli intervalli su altre scale in cui non è adatta.
-In questo senso credo che la complessità rifiuti, la complessità in senso epistemico, debba rifiutare l'idea di pluralismo,
-sostituendola ad un'idea di convivenza di teorie con scopi differenti, con scopi e domini di applicazioni differenti.
-Da una parte la complessità ci dice di non buttare via la fisica newtoniana o l'elettromagnetismo classico, anche se sono sbagliati,
-perché ci sono certe scale temporali e spaziali, perlopiù, dove quelle teorie sono factualmente corrette, più maneggevoli,
-e ugualmente adatte allo scopo.
-Un esempio dell'economia può essere invece lo studio dei fenomeni di lungo periodo.
-Ci sono essenzialmente almeno quattro modi diversi nella storia dell'economia di descrivere il lungo periodo.
-Ciascuno di questi è sostanzialmente valido a fine prova contraria, visto l'impossibilità di descrivere con accuratezza il futuro.
-Il primo è quello neoclassico per cui l'economia ha dei punti di equilibrio stabili e quindi, in assenza di eventi catastrofici,
-l'economia nel lungo periodo raggiungerà uno di questi equilibri stabili e ci rimarrà.
-C'è un approccio più poskenesiano in cui gli equilibri sono invece riconosciuti come multipli instabili
-e quindi l'economia nel lungo periodo raggiungerà dei regimi stabili per un certo periodo,
-ma potrà per piccole fluttuazioni spostarsi su altri regimi ed eventualmente muoversi tra regimi diversi.
-Quindi di un futuro in equilibrio instabile.
-C'è un approccio più tipicamente marxista in cui non viene descritto il punto di arrivo del futuro,
-ma alcune caratteristiche della dinamica che portano a questo punto di arrivo.
-E c'è infine un approccio complesso in cui l'economia viene vista come un sistema caotico
-e quindi esiste un orizzonte degli eventi oltre il quale è impossibile fare qualunque tipo di analisi.
-Ciascuna di queste quattro teorie permette di studiare cose diverse sul futuro.
-Ciascuna di queste quattro rappresentazioni permette di rispondere a domande diverse sul futuro.
-C'è qualche motivo evidente per cui noi dovremmo preferire una scienza in cui
-qualcuna di queste visioni manca, perché deve esserci un vincitore,
-o è più utile accettare che ciascuna di queste quattro rappresentazioni
-sul futuro ha un suo dominio di applicazione, ha delle ipotesi implicite su che tipo di futuro.
-Per esempio, cosa sono gli eventi catastrofici o i tempi non normali che invalidano la teoria neoclassica,
-ma che all'interno di quelle ipotesi esplicito implicite, ciascuna di queste quattro visioni è utile,
-perché ciascuna di queste quattro visioni ci dà degli strumenti concettuali diversi, complementari,
-per rispondere a delle domande di ricerca, quindi a delle domande di comprensione del mondo.
-In questo senso, trovo un po' inutile il dibattito su quale livello di pluralismo sia necessario
-citare paper sul pluralismo ragionevole.
-In quanto credo che il punto sia adottare un approccio laico in cui le diverse teorie non vengono
-viste in competizione tra loro, ma come complementari agendo su livelli diversi di diverse scale.
-Ancora con un esempio dall'economia, alcune ipotesi del modello neoclassico,
-per esempio la massimizzazione dei profitti, l'accesso a informazione quasi perfetta,
-la possibilità di lavorare su quantità continue non discrete, si applicano abbastanza bene a grosse aziende.
-Quindi, forse, per studiare l'economia di una grossa azienda, quella teoria ha senso,
-perché ha delle ipotesi che ci pongono su certi livelli di alcune scale,
-per esempio su una scala della disponibilità di informazione il livello di conoscenza dell'ambiente,
-e su quelle segne e le domande che cerca una risposta su quei segmenti di quelle scale,
-beneficiano di quella teoria.
-Il punto fondamentale è riconoscere quali sono le ipotesi implicite e esplicite della teoria,
-e quindi fin dove questa si applichi, e non portarla fuori dal suo dominio di applicazione.
-Cercare frase ad effetto su una scelta, su una scienza laica, e non plurale.
+Quello che non fa questa definizione è fornire direttamente un qualche tipo di conoscenza specifica in qualsivoglia ambito del sapere.
+In questo senso non possiamo considerare la teoria della complessità, per come è appena stata definita, una teoria in senso stretto.
 
-Descrivere inoltre implica un'analisi accurata dell'oggetto di studio, senza, almeno in primo luogo, scorciatoie e apprrossimazioni. In alcuni contesti è possibile che si possa descrivere con cura e minuzia usando il linguaggio formale della matematica o una lingua che non si padroneggia perfettamente, ma in generale se descrivere (e quindi, forse, comprendere) è un aspetto fondamentale per esplorare ciò che è complesso, un ritorno all'uso del proprio linguaggio naturale (e forse anche l'uso di una multi-medialità) diventa una pratica imprescindibile.
+Piuttosto essa fornisce delle indicazioni su come operazionalizzare l'osservazione, e quindi lo studio, di un sistema complesso, ovvero su come costruire delle teorie sui diversi sistemi complessi.
 
-In qualche modo invece, ciò che sto provando a delineare è una metodologia del particolare e dell'unico, del riconoscere che i tratti importanti di un sistema sono molteplici e differenti a seconda dello scopo, della domanda. Ed è nel riconoscere il ruolo organico del particolare all'interno del generale, invece che rappresentare invece il particolare come variazione sul tema del generale, che il paradigma della complessità può divenire uno strumento di dialogo tra discipline, una categoria di pensiero applicabile alla realtà generale e, forse, il motore di un cambio di paradigma scientifico.
+In questo senso credo sia più corretto parlare di una meta-teoria della complessità, ovvero di una teoria su come sia necessario sviluppare le teorie che descrivono i sistemi complessi\footnote{Se è vero quanto accennato prima sull'essere la realtà stessa un sistema complesso in ogni suo aspetto, allora la meta-teoria della complessità fornisce dei principi di cui deve tenere conto ogni teoria scientifica.}.
 
-Questa sensibilità al particolare invita anche a recuperare i metodi qualitativi della ricerca affianco a quelli quantititativi, perché in grado di esplorare lo stesso fenomeno a livelli diversi, dandone una conoscenza non contraddittoria, come può sembrare, ma sfacettata e complementare.
+Si potrebbe argomentare che il caso particolare della fisica sia sufficiente ad abbattere la costruzione argomentativa che sto portando avanti, fornendo un fortissimo argomento a favore del mantenimento di un paradigma riduzionistico.
+Attraverso passaggi logici è possibile a oggi ricondurre quasi ogni legge fisica a un piccolo numero di forze fondamentali (tra una e tre a seconda delle teorie), che sono in grado quindi di spiegare ogni fenomeno del reale.
 
-È una prospettiva di cura e democratizzante, perché restituisce all'esperienza umana individuale una dimensione propria non come variazione di un tipo generale, ma come portatrice di particolarità proprie osservabili solo su ci si pone al giusto livello della giusta scala.
+Da un punto di vista speculativo, assumendo per semplicità una realtà assolutamente deterministica, questo potrebbe sembrare effettivamente la realizzazione del sogno riduzionista di ricondurre ogni fenomeno a una manciata di principi primi e quindi alla possibilità di formulare una \textit{legge del tutto} che governa la realtà in ogni suo aspetto. Ma tale pensiero non trova riscontro pratico o esperienziale.
+Nessun ricercatore proverebbe mai a descrivere nemmeno la statica di un ponte usando le poche leggi fondamentali, per non dire di fenomeni più complessi nel regno animale o nella sfera culturale.
+E come già detto, anche nella stessa fisica esistono fenomeni che sono ricondotti alla teoria unificante solo in condizioni ideali e perfette, le cui imprecisioni reali sono meglio spiegate da teorie e correzioni ad hoc, sviluppate per il caso specifico senza pretese di universalità.
 
+L'anti-riduzionismo presente nel lavoro di Anderson e nell'idea di una meta-teoria della complessità può essere quindi riformulato come il rifiuto della possibilità di una teoria del tutto e di un punto di vista privilegiato.
+
+Come conseguenza, la conoscenza non può che essere intesa come contestuale e funzionale, ovvero legata a particolari premesse e scopi che evidenziano caratteristiche diverse dello stesso oggetto di studio, determinando approssimazioni diverse che evidenziano diversi livelli su diverse scale.
+
+Fare ricerca secondo questa accezione di complessità richiede quindi di rimettere al centro la specifica domanda di ricerca, o di riconoscere la specifica sfaccettatura del reale da osservare, e assumerla come punto di partenza.
+Da lì è necessario descrivere nel modo più preciso e ricco possibile l'oggetto di studio per poter riconoscere quante più scale rilevanti possibili e su ognuna di essi i livelli più adatti allo scopo, ovvero di esplicitare con la maggiore precisione possibile le proprie premesse, per poi approssimare l'oggetto di studio a una sua rappresentazione --a un suo modello-- che sia gestibile e affrontabile.
+
+L'atto, qui così centrale, di descrivere richiede un'analisi accurata, senza, almeno in primo luogo, scorciatoie e approssimazioni. In alcuni contesti è possibile che ciò possa essere fatto con cura e minuzia usando il linguaggio formale della matematica o una lingua che non si padroneggia perfettamente, ma in generale se descrivere (e quindi, forse, comprendere intimamente) diventa un aspetto fondamentale della pratica scientifica, il ritorno all'uso del proprio linguaggio naturale (e forse anche l'uso della multi-medialità) diventa una pratica imprescindibile\footnote{Questa è solo una delle difficoltà pratiche che l'adozione della meta-teoria della complessità deve affrontare nella ricerca contemporanea. L'ultima sezione di questo articolo cerca di approfondire maggiormente la questione.}.
+
+Così delineata, la meta-teoria della complessità si avvicina una metodologia del particolare e dell'unico, che riconosce che i tratti importanti di un sistema sono molteplici e differenti a seconda dello scopo, della storia e della soggettività di chi porta avanti la ricerca. Riconosce, in una certa misura, il ruolo organico del particolare all'interno del generale, piuttosto che assumere il particolare come variazione sul tema del generale. 
+
+Il protagonismo del particolare richiede di estendere i metodi a disposizione del ricercatore, e in particolare di recuperare i metodi qualitativi anche dove il loro uso si è perso. Questo perché l'uso complementare di metodi qualitativi e quantitativi è in grado di esplorare lo stesso fenomeno a un maggior numero livelli diversi, per ottenerne una conoscenza più ricca e sfaccettata.
+
+Allo stesso modo, l'esperienza umana individuale viene riconosciuta come portatrice una dimensione propria, quantomeno come determinante della descrizione che il ricercatore fa, osservabile dal giusto livello della giusta scala, e non come mera variazione di un archetipo generale. 
+In questo senso, penso si possa riconoscere che la complessità così intesa offra una cornice concettuale per quelle istanze che cercano di portare una prospettiva intersezionale, democratica e di cura all'interno della pratica scientifica.
+
+Per chiudere la sezione mi soffermo su un dibattito vivo in molte discipline, tra cui l'economia, sulla coesistenza di teorie alternative e il problema di scegliere una teoria rispetto. Il dibattito sul pluralismo. 
+
+Col termine pluralismo si indica di solito una visione per cui all'interno di una disciplina possano (o debbano) coesistere una pluralità di teorie diverse tra loro alternative e, generalmente, inconciliabili. 
+È il caso anche in fisica in cui teorie diverse per la fisica delle alte energie competono per essere riconosciute come la teoria "giusta", cioè in accordo con tutte le evidenze sperimentali.
+
+L'idea di pluralismo richiede l'esistenza di una teoria corretta, di una teoria del tutto che possa dimostrare sbagliate le teorie alternative.
+
+In un approccio che invece riconosce ogni teoria come necessariamente contestuale, ovvero con dei limiti al proprio dominio di applicazione (intesi come gli intervalli su alcune scale per cui è stata sviluppata) l'idea di pluralismo perde di senso, in quanto la convivenza di teorie con scopi e premesse differenti è una caratteristica intrinseca.
+
+La meta-teoria della complessità ci suggerisce che la fisica newtoniana, l'elettromagnetismo classico e persino il geocentrismo non siano teorie sbagliate, ma sono teorie e modelli che (come tutti) hanno un campo di validità non universale, ma che nel loro campo di validità sono utili perché rispondono alle domande per cui sono state creati, perché rispondono a uno scopo.
+
+Un esempio dall'economia può essere invece lo studio dei fenomeni di lungo periodo.
+Esistono almeno quattro approcci diversi nella storia dell'economia di descrivere il lungo periodo: l'approccio neoclassico, che descrive l'esistenza di un unico equilibrio di lungo periodo e il comportamento del sistema economico che rilassa verso di esso; l'approccio post-keynesiano, che descrive la possibilità di stati stazionari multipli, simili nell'idea a equilibri instabili, fra cui il sistema economico può muoversi; l'approccio marxiano, che descrive qualitativamente alcune caratteristiche della dinamica del sistema economico nel lungo periodo, senza descrivere però il punto di arrivo di essa con precisione sufficiente a essere studiato; l'approccio che fa propria la teoria del caos deterministico, che descrivendo l'economia come un sistema caotico conclude l'impossibilità di studiarne il comportamento di lungo periodo, per il progressivo accumularsi di errori inevitabili in qualunque rappresentazione.
+Ciascuno di questi quattro approcci permette di studiare aspetti diversi del futuro, rispondendo a domande diverse.
+
+Non vedo dei motivi validi per preferire un paradigma scientifico che cerchi di riconoscere quale di questi sia la corretta rappresentazione della realtà in ogni situazione, invece che ragionare sulle ipotesi implicite e esplicite dietro ad ognuno di essi\footnote{Per esempio un'assunzione troppo spesso dimenticata del modello neoclassico è quella di tempo normale, o di assenza di shock esogeni. Trovo più interessante discutere di cosa renda un tempo \textit{normale} e quindi in quali condizioni la rappresentazione neoclassica sia utile, che inscenare una gara su chi abbia ragione \textit{in assoluto}.}.
+
+Piuttosto che una visione pluralistica di sviluppo della conoscenza, la meta-teoria della complessità fa propria una visione laica, in cui lo sviluppo di ogni teoria è un tassello utile se non necessario per completare il quadro generale e in cui ogni teoria ha di per sé diritto a esistere nel suo dominio di applicazione.
+
+Allo scontro intellettuale si sostituisce un approccio dialettico, in cui il rapporto fra teorie alternative mira a evidenziare le ipotesi implicite di ognuna e i rispettivi domini di validità, piuttosto che la correttezza di una o dell'altra.
 
 \section{Sull'Economia}
 La seconda parte di questo articolo cerca di contestualizzare quello che abbiamo detto
@@ -626,6 +573,8 @@ nel momento in cui si assumono certe ipotesi di lavoro piuttosto che altre spess
 rispetto al preciso oggetto di studi. E dall'altra un'intuizione che mi sembra banale
 che quella di dover piegare il proprio approccio e le proprie premesse all'oggetto di studi
 e non l'oggetto di studi a un approccio a una premessa decisa a priori.
+
+stilemi, globalizzazionbe della ricerca
 
 \printbibliography
 
