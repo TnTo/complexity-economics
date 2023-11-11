@@ -13,6 +13,7 @@
 \usepackage[hidelinks]{hyperref}
 
 \usepackage{textcomp}
+\usepackage{extdash}
 
 \addbibresource{complexity.bib}
 
@@ -206,7 +207,7 @@ In tempi recenti altri tre fenomeni hanno interessato l'economia influenzando mo
 
 Il primo è la diffusione dei calcolatori che ha fatto sì che affianco alle soluzioni analitiche si cominciassero ad accettare anche soluzioni ottenute con strumenti computazionali \parencite{cherrier2023, backhouse2016}, per esempio aprendo la strada a modelli macroeconomici che abbandonano in parte l'agente rappresentativo per includere un certo grado di eterogeneità (i modelli HANK).
 
-Il secondo è il progressivo spostamento della disciplina dalla ricerca puramente teorico-modellistica alla ricerca empirica, che basa i risultati su di un'accurata analisi dei dati disponibili \parencite{cherrier2018, backhouse2017}.
+Il secondo è il progressivo spostamento della disciplina dalla ricerca puramente teorico-model\-listica alla ricerca empirica, che basa i risultati su di un'accurata analisi dei dati disponibili \parencite{cherrier2018, backhouse2017}.
 Questa svolta neo-empirica è estremizzata da alcuni economisti che rifiutano la necessità di una teoria economica (anche a seguito dei limiti emersi con le crisi dell'inizio del XXI secolo) ritenendo l'analisi dei dati sufficiente a far emergere i rapporti di causa ed effetto sottesi ai fenomeni economici.
 
 Il terzo è la progressiva specializzazione degli economisti che ha portato alla nascita di comunità di ricerca indipendenti tra loro che condividono però un'origine comune nella teoria neoclassica. Questo fenomeno è stato etichettato da alcuni come \textit{mainstream pluralism} \parencite{cedrini2018, davis2006, davis2019a} per sottolineare che esiste una pluralità di programmi di ricerca che convivono tra di loro e convivono con il (e anzi si nutrono del) paradigma dominante --neoclassico-- che li ha preceduti.
@@ -217,93 +218,47 @@ La seconda affonda le proprie radici nella svolta neo-empirica e anch'essa fa us
 La terza partendo dalla Prospettiva di Santa Fe riesce a fare propria la complessità come meta-teoria.
 
 \subsection{Complessità neo-empirica}
-La prima delle tre relazioni archietipiche è quella che possiamo definire neoempirica.
-Si inserisce appunto in un filone di ricerca che si muove progressivamente da un approccio
-principalmente teorico, un approccio principalmente applicato di creazione di conoscenza
-con un'enorme scusione sulla generalizzabilità di questa conoscenza che si potrebbe fare
-attraverso la ricerca di relazioni causali di pattern nei dati.
-Nella sua versione più semplice, la svolta neoempirica in economia si manifesta con tutta una serie di studi
-che si allontanano spesso dai temi classici dell'economia
-e che possiamo raggruppare per le scelte tecniche che fanno, per gli strumenti che usano.
-Tipicamente evoluzioni del modello di regrezione lineare come gli studi difference in difference,
-le procedure di matching, i randomized control trials e i quasi esperimenti,
-ovvero un insieme di tecniche che cercano da un insieme di dati che possono essere divisi in due o più gruppi
-che differiscono per qualche caratteristica, cercare di recuperare le determinanti di questa caratteristica che distingue i gruppi.
-Chiaramente questo tipo di analisi ha innanzitutto un grosso limite, cioè che tende a concentrarsi su differenze al primo ordine
-e su problemi che possono in qualche modo essere delineati in un senso di relazione causale,
-di confronto fra sottogruppi.
-E' velocemente evidente che la possibilità di usare rappresentazioni più complesse o metodi di analisi più complessi
-come ad esempio la teoria delle reti o numerosi algoritmi di machine learning permetta in qualche modo di ampliare il tipo di analisi che si può svolgere.
-Un esempio architipico è il lavoro di Aidalgo sull'indice di complessità economica,
-in cui l'unica assunzione teorica che viene svolta è che l'export di un paese sia il rappresentativo della produzione di quel paese
-e che in un approccio puramente empirico basato sull'analisi delle reti di commercio tra i paesi
-va a definire un indice di complessità di in qualche modo il livello di avanzamento delle economie mondiali,
-lavorando su quella che può sembrare una tutologia, cioè l'assunto è che paesi ad economia avanzata producono beni avanzati
-e beni avanzati vengono prodotti in paesi ad economia avanzata.
-Questa è tutta la teoria economica che c'è dietro ai lavori di Aidalgo,
-che possiamo dire che da un certo punto di vista è geniale, nel senso che con una descrizione tutto sommato semplice,
-stilizzata e un buon uso dei dati, riesce a ottenere dei risultati che in qualche modo si allino nell'intuizione.
-Ma ci rende estremamente difficile problematizzare che cosa sia un'economia avanzata, perché un'economia avanzata sia tale
-e quali siano i contesti istituzionali, i percorsi storici e le relazioni di potere che ci portano a riconoscere come avanzata
-un certo tipo di economia e riconoscere quello che ci aspettiamo da un'economia avanzata in certi paesi e non in altri.
-Stupidamente manca una prospettiva temporale in questo approccio e impossibile da includere se non forzatamente,
-cioè facendo una sequenza di studi in un preciso posto nel tempo, ma senza la possibilità di inserire degli effetti di lungo periodo,
-che per esempio impedisce di introdurre una prospettiva colonialista nel discorso.
-Dall'altra parte l'uso di metodi statistici sempre più avanzati come il machine learning, come le reti neurali per classificare
-o altri strumenti del genere, rende sempre più difficile distinguere il rumore dall'effetto.
-I modelli machine learning sono estremamente pronti all'overfitting, ovvero a riconoscere dei pattern anche nel rumore.
-E considerando che la qualità dei dati economici è di solito molto bassa e sono generalmente molto rumorosi,
-il fatto di muovere verso algoritmi più complessi per cercare di sfuggire da una teoria che appare probabilmente perché è parziale e politica,
-rischia di produrre una cattiva scienza, nel senso che ci priva della capacità di leggere quei dati in una maniera che permetta di evidenziare
-quali siano gli elementi davvero importanti di quei dati e quali gli elementi trascurabili. Tutto ciò una macchina non può saperlo a priori.
-E se i dati sono molto rumorosi è anche difficile inferirlo. Sono cose che noi ricercatori possiamo fare conoscendo il contesto in cui i dati sono presi,
-conoscendo il fenomeno che vogliamo studiare e riuscendo a fare una serie di assunzioni teoriche che ci permettono di distinguere
-quali sono gli elementi importanti e quindi le scale da tenere in considerazione e quali elementi è probabile che diano correlazioni spurie
-o siano solo portatori di rumore perché non c'è motivo concettuale teorico per cui debbano entrare prepotentemente nella relazione che stiamo cercando di studiare.
+La prima delle tre relazioni archetipiche è quella neo-empirica.
+
+Come detto, il filone di ricerca neo-empirico in economia si concentra sul costruire dei metodi che permettano di trovare relazioni di causalità nei dati, indipendentemente dallo specifico dominio di ricerca. Tra di essi trovano ampio spazio generalizzazioni delle regressioni lineari (come i metodi \textit{difference-in-differences}) e metodi che cercano di manipolare il campione per ottenere coppie di osservazioni da confrontare (come nei \textit{randomized control trials} o nell'uso di procedure di \textit{matching}).
+
+I metodi matematici della complessità offrono miglioramenti per queste due classi di metodi attraverso le tecniche di \textit{machine learning} sviluppate negli anni, che permetto di individuare relazioni non lineari e di trasformare la rappresentazione del campione per migliorare le procedure di accoppiamento delle osservazioni.
+Inoltre, la teoria della complessità ha utilizzato negli anni diversi enti matematici per descrivere i dati da analizzare, sviluppando al contempo tecniche specifiche per lo scopo.
+Un esempio di queste diverse rappresentazioni sono le reti che hanno permesso di analizzare i dati tenendo conto delle relazioni di mutua interdipendenza delle osservazioni. 
+
+Il filone di ricerca della "Complessità Economica" \parencite{hidalgo2021} è un esempio interessante di come uno strumento tipico della teoria della complessità (le reti) ha permesso di rappresentare un problema economico (il livello di sviluppo di un'economia) senza ricorrere significativamente alla teoria economica.
+L'ipotesi di fondo è che le economie più avanzate producano ed esportino prodotti complessi, e che i prodotti più complessi siano prodotti dalle economie avanzate.
+Rappresentando i flussi di import ed export globali per classe di prodotto come una rete, in cui i nodi rappresentano i paesi e gli archi i flussi di merci, si può definire un processo di punto fisso che modellizza l'ipotesi.
+Il risultato del processo di punto fisso è un indice che classifica il livello di sviluppo delle nazioni.
+
+È affascinante che un modello molto semplice, che usa come premesse teoriche osservazioni piuttosto semplici, riesca attraverso una rappresentazione efficace dei dati a produrre risultati che ben si allineano all'intuizione.
+D'altra parta l'assenza di un modello teorico solido impedisce di problematizzare cosa sia un'economia sviluppata, perché la definizione che se ne ricava è in un certo senso tautologica (un'economia avanzata esporta i prodotti che esportano le economie avanzate), non lasciando spazio all'analisi dei processi storici (ogni prospettiva diacronica, e quindi una scala temporale, è assente se non nel confronto di indici calcolati su periodi differenti) e dei contesti istituzionali che influenzano lo sviluppo economico.
+
+Una facile critica a questo modo di introdurre metodi statistici avanzati nello studio dell'economia è che essi sono piuttosto proni a trovare in ogni caso una relazione nei dati, anche quando questa è spuria ed effetto del rumore presente nei dati. E generalmente i dati sui processi economici (e sociali in genere) sono estremamente rumorosi, avendo piccola numerosità, errori di misura e problemi di campionamento.
+
+L'illusione che eliminare gli schemi teorici dall'analisi dei dati possa produrre una conoscenza oggettiva si scontra con la possibilità di inferire relazioni spurie o non generalizzabili al di fuori del campione analizzato (ritornando al problema della contestualità della conoscenza), problemi che una guida teorica è in grado di ridurre, indirizzando l'analisi verso gli elementi più importanti (distinguendoli dal rumore) e dando senso ai risultati ottenuti.
+
+D'altra parte è impossibile negare che un più ampio ventaglio di metodi matematici sempre più sofisticati ha permesso e permette studi empirici impossibili con i metodi storicamente propri della disciplina economica.
 
 \subsection{Complessità post-neoclassica}
-La seconda relazione è quella che, invece, amo chiamare post-neoclassica e che per tanti
-aspetti si avvicina all'idea di mainstream pluralism di Davis et alta.
-Il tipo di riflessione che da qui nasce è che la teoria mainstream ha mostrato negli ultimi vent'anni una serie di limiti.
-Nel suo essere, probabilmente perché riduzionista, eccessivamente rigida per trattare tutta una serie di situazioni reali che, per qualche motivo, sono diventati maggiori interesse, per esempio la questione ambientale o la fragilità finanziaria.
-L'approccio degli studiosi post-neoclassici, che non si riconoscono generalmente come post-neoclassici, è una distinzione che introduco io in questo momento,
-non è di rifiutare la teoria cercando rifugio in relazioni empiriche che possano essere estratte da dei dati, facendo un passo indietro e nascondendo le proprie intuizioni teoriche dietro delle procedure standardizzate.
-Ma è piuttosto quello di cercare di riflettere su quali assunzioni del proprio modello teorico creano questa rigidità e trovare dei modi tendenzialmente ancora deduttivi di aggirarle.
-In questo senso i metodi di matematica e complessità forniscono una serie di strumenti interessanti per, appunto, introdurre delle ipotesi meno restrittive,
-ma che rimangano in qualche modo risolvibili, perché portano la formalizzazione del sistema verso una di quelle categorie di sistemi che sono studiate nella teoria della complessità.
-Questo tipo di passaggio ha in realtà un esempio storico molto più antico della crisi del mainstream, che è l'adozione in microeconomia della teoria dei giochi.
-Nel momento in cui si adotta lo strumento della teoria dei giochi, e particolarmente dei giochi terrati, che sono dei sistemi complessi,
-nel senso che, per mantenere il lessico che abbiamo introdotto, introduce una scala di temporalità nell'iterazione del gioco,
-è una scala di interazione in cui l'individuo non è più solo, ma interagisce con altro,
-e quindi si crea una distinzione tra la descrizione del comportamento dell'individuo e la descrizione della coppia o del gruppo di persone che interagiscono nel gioco.
-L'introduzione a teoria dei giochi, in particolare dei giochi iterati, appunto, permette alla microeconomia neoclassica di ampliare il proprio ambito di studi,
-riuscendo a alleviare alcune ipotesi, per esempio quella di informazione perfetta, che emerge l'informazione nell'iterazione del gioco.
-E quindi diventa poi interessante andare a vedere qual è la convergenza della strategia,
-oppure nella simmetria delle funzioni di utilità, permettendo di avere funzioni di utilità simmetriche,
-vedendo come queste interagiscono verso un equilibrio piuttosto che un altro.
-E quindi questo approccio, in sintesi,
-non mira a scartare, come nell'approccio noempirico, o sostituire, come vedremo poi in un'altra prospettiva, la teoria neoclassica.
-Ma ha in una modalità riduzionista alla Boltzmann di dotarsi degli strumenti analitici o più recentemente computazionali
-che permettano di mantenere il nocciolo teorico di riferimento, l'approccio epistemico di riferimento,
-ma definire dei casi particolari in cui alcune ipotesi vengono rilassate,
-riconducendo il caso base a un caso particolare della nuova trattazione.
-Esempi più recenti possono essere l'introduzione di funzioni di utilità non lineari
-in una parte dell'economia comportamentale esperimentale
-L'utilizzo di modelli ad agenti computazionali in alcuni ambiti di teoria dell'innovazione,
-o in generale di microeconomia, in cui rinunciando alla trattabilità analitica
-e accettando una trattabilità computazionale
-si possono introdurre assimetrie informative, rigidità
-o funzioni di utilità non standard
-e osservare l'interazione tra gli agenti quanto e come si discosta
-dagli equilibri ipotizzati sotto le ipotesi più restrittive standard.
-In maniera meno evidente,
-perché non è così chiaro quali sono gli strumenti adottati,
-ma diventa evidente se lo guardiamo da un punto di vista delle scale,
-rientra senza dubbio in questo filone anche l'economia ambientale.
-Che si pone il problema di definire un prezzo per beni non di mercato.
-E quindi deve trovare una definizione di prezzo diversa da quella standard
-che si applichi anche a una definizione di prezzo diversa da quella standard
-che si applichi anche a beni di per sé non di mercato.
+La seconda relazione è quella post-neoclassica.
+
+La teoria neoclassica ha accumulato negli anni (come ogni teoria scientifica di lunga data) una serie di controesempi e di domande di ricerca difficilmente affrontabili con il suo insieme tipico di assunzioni.
+
+Per ovviare a questo problema la scelta di alcuni economisti non è di rifiutare la teoria neoclassica sostituendola con una delle alternative eterodosse o con l'impostazione neo-empirica, quanto piuttosto di rilassare alcune (poche) assunzioni per affrontare una specifica classe di problemi, mantenendo lo stesso approccio quanto più possibile riduzionista-deduttivo.
+
+I metodi matematici della complessità sono, in alcuni casi, gli strumenti che permettono di rilassare le assunzioni ottenendo lo stesso una soluzione trattabile analiticamente (o computazionalmente).
+
+Un esempio importantissimo nella storia della microeconomia è la teoria dei giochi iterati. L'assunzione che viene rilassata è che tutti gli agenti posseggano una conoscenza perfetta del contesto, permettendo che invece essa si sviluppi e migliori attraverso la ripetizione del gioco. Allo stesso tempo si introduce nel modello la scala temporale che permette di distinguere l'azione ottima nella singola iterazione con l'azione ottima nell'insieme del gioco.
+Così facendo si riescono a ricondurre alla teoria neoclassica situazioni reali in cui, ad esempio, gli agenti mostrano comportamenti collaborativi anziché competitivi.
+
+Tra gli esempi più recenti troviamo anche l'introduzione di funzioni di utilità non lineari
+da parte dell'economia comportamentale o l'utilizzo di modelli ad agenti computazionali nella teoria dell'innovazione, che permettono di introdurre asimmetrie informative e altre rigidità e di osservare quanto queste soluzioni si discostino da quelle ottenute con le assunzioni e i metodi tipici.
+
+In altri casi è meno evidente quale sia lo strumento matematico che permette la specializzazione della teoria, ma è molto chiaro quale scala venga aggiunta e quali assunzioni rilassate. Per esempio, l'economia ambientale rilassa l'ipotesi che il prezzo sia indicatore di squilibri di mercato per cercare di assegnare un valore (monetario) anche a beni ed esternalità che non vengono scambiati in un mercato.
+Viene cioè introdotta una seconda nozione di prezzo che introduce una scala della scambiabilità dei beni di cui dobbiamo considerare contemporaneamente i due livelli dei beni scambiabili (per i quali valgono le assunzioni tipiche sulla formazione dei prezzi e quindi sulla definizione del valore) e dei beni non scambiabili (per i quali è necessario introdurre una differente nozione di prezzo e di valore).
+
+Possiamo vedere in questo archetipo di relazione lo stesso programma che mosse Boltzmann: cercare di sviluppare (o usare) degli strumenti matematici che permettano di spiegare nuovi fenomeni con la vecchia teoria senza abbandonarne l'approccio riduzionista.
 
 \subsection{Complessità meta-teorica}
 La terza relazione archietipica è quella che utilizza la complessità come metatheoria
